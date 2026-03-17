@@ -4,771 +4,184 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Espacio Bosque La Quemada — Plan de Ventas 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --forest: #1a2e1a;
-    --moss: #2d4a2d;
-    --sage: #4a7c59;
-    --mint: #7ab895;
-    --cream: #f5f0e8;
-    --sand: #e8dcc8;
-    --bark: #8b6914;
-    --amber: #d4a017;
-    --ember: #c0392b;
-    --snow: #fafaf8;
-    --shadow: rgba(26,46,26,0.15);
-    --text: #1a2e1a;
-    --light-text: #4a6741;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--snow);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--forest);
-    position: relative;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(74,124,89,0.25) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(45,74,45,0.4) 0%, transparent 60%),
-      linear-gradient(160deg, #0d1c0d 0%, #1a2e1a 40%, #243824 100%);
-  }
-
-  .tree-silhouette {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 260px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 260'%3E%3Cpath fill='%230d1c0d' d='M0,260 L0,180 Q30,100 60,140 Q80,80 110,120 Q130,60 160,100 Q190,40 220,90 Q250,30 280,80 Q310,20 340,70 Q360,10 390,55 Q420,0 450,50 Q480,10 510,60 Q540,20 570,70 Q590,5 620,55 Q650,15 680,65 Q710,25 740,75 Q760,10 790,55 Q820,0 850,45 Q880,10 910,55 Q940,20 970,65 Q1000,5 1030,50 Q1060,15 1090,60 Q1120,25 1150,70 Q1170,10 1200,55 Q1230,5 1260,50 Q1290,20 1320,65 Q1350,30 1380,75 L1440,100 L1440,260 Z'/%3E%3C/svg%3E") no-repeat bottom center / cover;
-  }
-
-  .nav {
-    position: relative; z-index: 10;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 24px 48px;
-  }
-
-  .logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--mint);
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .nav-badge {
-    background: rgba(122,184,149,0.15);
-    border: 1px solid rgba(122,184,149,0.3);
-    color: var(--mint);
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .hero-content {
-    position: relative; z-index: 5;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 32px 180px;
-  }
-
-  .hero-eyebrow {
-    color: var(--mint);
-    font-size: 0.8rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    opacity: 0.8;
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 7vw, 6rem);
-    color: var(--cream);
-    line-height: 1.05;
-    margin-bottom: 24px;
-    font-weight: 900;
-  }
-
-  .hero-title em {
-    color: var(--mint);
-    font-style: italic;
-  }
-
-  .hero-sub {
-    color: rgba(245,240,232,0.6);
-    font-size: 1.1rem;
-    max-width: 540px;
-    line-height: 1.7;
-    margin-bottom: 48px;
-    font-weight: 300;
-  }
-
-  .hero-stats {
-    display: flex; gap: 48px;
-    margin-bottom: 48px;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--amber);
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .stat-label {
-    color: rgba(245,240,232,0.5);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 4px;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 120px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(122,184,149,0.5);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: bounce 2s infinite;
-    z-index: 5;
-  }
-
-  .scroll-hint::after {
-    content: '';
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, rgba(122,184,149,0.5), transparent);
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-
-  /* ── TABS ── */
-  .section {
-    padding: 80px 32px;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    color: var(--forest);
-    margin-bottom: 8px;
-  }
-
-  .section-sub {
-    color: var(--light-text);
-    font-size: 0.95rem;
-    margin-bottom: 40px;
-    max-width: 600px;
-    line-height: 1.6;
-  }
-
-  /* ── FILTER TABS ── */
-  .filter-bar {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-    padding: 16px;
-    background: var(--cream);
-    border-radius: 16px;
-  }
-
-  .filter-btn {
-    padding: 8px 20px;
-    border-radius: 100px;
-    border: 1.5px solid var(--sand);
-    background: white;
-    color: var(--light-text);
-    font-size: 0.82rem;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-weight: 500;
-  }
-
-  .filter-btn:hover {
-    border-color: var(--sage);
-    color: var(--sage);
-  }
-
-  .filter-btn.active {
-    background: var(--forest);
-    color: var(--cream);
-    border-color: var(--forest);
-  }
-
-  /* ── CALENDAR GRID ── */
-  .months-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  /* ── MONTH CARD ── */
-  .month-card {
-    background: white;
-    border-radius: 20px;
-    border: 1px solid var(--sand);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .month-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px var(--shadow);
-    border-color: var(--sage);
-  }
-
-  .month-card.hidden { display: none; }
-
-  .month-header {
-    padding: 20px 24px 16px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .month-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    color: var(--forest);
-    font-weight: 700;
-  }
-
-  .month-season {
-    font-size: 0.7rem;
-    color: var(--light-text);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 2px;
-  }
-
-  .month-intensity {
-    font-size: 1.6rem;
-  }
-
-  .dates-list {
-    padding: 0 24px 20px;
-  }
-
-  .date-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--cream);
-    border-radius: 8px;
-    padding: 6px 12px;
-    margin: 3px;
-    font-size: 0.78rem;
-    color: var(--forest);
-    font-weight: 500;
-    border: 1px solid var(--sand);
-  }
-
-  .date-chip.high {
-    background: #fff3cd;
-    border-color: var(--amber);
-    color: #7a5800;
-  }
-
-  .date-chip.peak {
-    background: #fde8e8;
-    border-color: var(--ember);
-    color: #7a1f1f;
-  }
-
-  .month-footer {
-    border-top: 1px solid var(--sand);
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .price-tag {
-    font-weight: 700;
-    color: var(--forest);
-    font-size: 0.9rem;
-  }
-
-  .price-tag span {
-    color: var(--sage);
-    font-size: 0.7rem;
-    font-weight: 400;
-  }
-
-  .view-btn {
-    background: none;
-    border: 1.5px solid var(--sage);
-    color: var(--sage);
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    transition: all 0.2s;
-  }
-
-  .view-btn:hover {
-    background: var(--sage);
-    color: white;
-  }
-
-  /* ── MODAL ── */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(10,20,10,0.75);
-    z-index: 1000;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 32px 16px;
-    overflow-y: auto;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    backdrop-filter: blur(4px);
-  }
-
-  .modal-overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .modal {
-    background: var(--snow);
-    border-radius: 24px;
-    max-width: 720px;
-    width: 100%;
-    overflow: hidden;
-    transform: translateY(20px);
-    transition: transform 0.3s;
-    position: relative;
-    margin: auto;
-  }
-
-  .modal-overlay.open .modal {
-    transform: translateY(0);
-  }
-
-  .modal-hero {
-    padding: 40px 40px 32px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 20px; right: 20px;
-    background: rgba(255,255,255,0.9);
-    border: none;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--forest);
-    transition: all 0.2s;
-    z-index: 5;
-  }
-
-  .modal-close:hover { transform: scale(1.1); }
-
-  .modal-month-tag {
-    display: inline-block;
-    background: var(--forest);
-    color: var(--mint);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 100px;
-    margin-bottom: 16px;
-  }
-
-  .modal-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    color: var(--forest);
-    margin-bottom: 8px;
-    font-weight: 900;
-  }
-
-  .modal-subtitle {
-    color: var(--light-text);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    max-width: 500px;
-  }
-
-  .modal-body { padding: 0 40px 40px; }
-
-  .modal-section-title {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--light-text);
-    margin: 28px 0 12px;
-    display: flex; align-items: center; gap: 8px;
-  }
-
-  .modal-section-title::before {
-    content: '';
-    width: 20px; height: 1.5px;
-    background: var(--mint);
-  }
-
-  /* DATES IN MODAL */
-  .event-list { display: flex; flex-direction: column; gap: 8px; }
-
-  .event-item {
-    display: flex; align-items: center;
-    gap: 14px;
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 12px 16px;
-    border: 1px solid var(--sand);
-  }
-
-  .event-icon { font-size: 1.4rem; }
-
-  .event-name { font-weight: 500; font-size: 0.88rem; color: var(--forest); }
-  .event-date { font-size: 0.75rem; color: var(--light-text); margin-top: 2px; }
-
-  .event-priority {
-    margin-left: auto;
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 3px 10px;
-    border-radius: 100px;
-  }
-
-  .event-priority.alta { background: #fde8e8; color: var(--ember); }
-  .event-priority.media { background: #fff3cd; color: #7a5800; }
-  .event-priority.baja { background: #e8f5e9; color: #2e7d32; }
-
-  /* PACKAGES */
-  .packages-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  .package-card {
-    background: white;
-    border: 1.5px solid var(--sand);
-    border-radius: 14px;
-    padding: 16px;
-    transition: all 0.2s;
-  }
-
-  .package-card:hover { border-color: var(--sage); }
-
-  .package-icon { font-size: 1.8rem; margin-bottom: 8px; }
-  .package-name { font-weight: 700; font-size: 0.88rem; color: var(--forest); margin-bottom: 4px; }
-  .package-desc { font-size: 0.78rem; color: var(--light-text); line-height: 1.5; }
-  .package-price {
-    margin-top: 8px;
-    font-weight: 700;
-    color: var(--sage);
-    font-size: 0.88rem;
-  }
-
-  /* EXTRAS */
-  .extras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-
-  .extra-item {
-    background: var(--cream);
-    border-radius: 10px;
-    padding: 12px;
-    text-align: center;
-    border: 1px solid var(--sand);
-  }
-
-  .extra-item .ei { font-size: 1.5rem; margin-bottom: 4px; }
-  .extra-item .en { font-size: 0.75rem; color: var(--forest); font-weight: 500; }
-  .extra-item .ep { font-size: 0.7rem; color: var(--sage); font-weight: 700; }
-
-  /* TIPS */
-  .tips-box {
-    background: linear-gradient(135deg, var(--forest), var(--moss));
-    border-radius: 16px;
-    padding: 20px 24px;
-    color: var(--cream);
-    margin-top: 12px;
-  }
-
-  .tip-item {
-    display: flex; align-items: flex-start; gap: 10px;
-    margin-bottom: 10px;
-    font-size: 0.82rem;
-    line-height: 1.5;
-  }
-
-  .tip-item:last-child { margin-bottom: 0; }
-  .tip-item .ti { font-size: 1rem; flex-shrink: 0; }
-
-  /* ── GROWTH SECTION ── */
-  .growth-section {
-    background: var(--forest);
-    padding: 80px 32px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .growth-section::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(74,124,89,0.3) 0%, transparent 70%);
-  }
-
-  .growth-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .growth-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    color: var(--cream);
-    margin-bottom: 8px;
-  }
-
-  .growth-sub {
-    color: rgba(245,240,232,0.5);
-    font-size: 0.95rem;
-    margin-bottom: 40px;
-    max-width: 500px;
-  }
-
-  .growth-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-
-  .growth-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(122,184,149,0.2);
-    border-radius: 20px;
-    padding: 28px;
-    transition: all 0.3s;
-  }
-
-  .growth-card:hover {
-    background: rgba(122,184,149,0.1);
-    border-color: rgba(122,184,149,0.4);
-    transform: translateY(-4px);
-  }
-
-  .growth-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: rgba(122,184,149,0.2);
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 16px;
-  }
-
-  .growth-card-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--mint);
-    margin-bottom: 10px;
-  }
-
-  .growth-card-desc {
-    font-size: 0.82rem;
-    color: rgba(245,240,232,0.6);
-    line-height: 1.6;
-  }
-
-  .growth-tag {
-    display: inline-block;
-    margin-top: 12px;
-    background: rgba(122,184,149,0.15);
-    color: var(--mint);
-    font-size: 0.68rem;
-    padding: 3px 10px;
-    border-radius: 100px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* ── REVENUE ESTIMATOR ── */
-  .estimator-section {
-    padding: 80px 32px;
-    background: var(--cream);
-  }
-
-  .estimator-inner {
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-
-  .estimator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-
-  .estimate-controls {
-    background: white;
-    border-radius: 20px;
-    padding: 32px;
-    border: 1px solid var(--sand);
-  }
-
-  .control-group { margin-bottom: 24px; }
-
-  .control-label {
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--forest);
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  .control-slider {
-    width: 100%;
-    appearance: none;
-    height: 4px;
-    border-radius: 100px;
-    background: linear-gradient(to right, var(--sage) 0%, var(--sage) var(--val, 60%), var(--sand) var(--val, 60%), var(--sand) 100%);
-    outline: none;
-  }
-
-  .control-slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--forest);
-    cursor: pointer;
-    border: 2px solid var(--mint);
-  }
-
-  .control-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--sage);
-    margin-top: 6px;
-  }
-
-  .estimate-result {
-    background: var(--forest);
-    border-radius: 20px;
-    padding: 32px;
-    color: var(--cream);
-    position: sticky;
-    top: 20px;
-  }
-
-  .result-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: rgba(122,184,149,0.7);
-    margin-bottom: 8px;
-  }
-
-  .result-big {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--amber);
-    line-height: 1;
-    margin-bottom: 24px;
-  }
-
-  .result-row {
-    display: flex; justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    font-size: 0.82rem;
-  }
-
-  .result-row:last-child { border: none; }
-  .result-row .label { color: rgba(245,240,232,0.5); }
-  .result-row .value { color: var(--cream); font-weight: 600; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #0a140a;
-    color: rgba(245,240,232,0.4);
-    text-align: center;
-    padding: 40px 32px;
-    font-size: 0.8rem;
-    line-height: 2;
-  }
-
-  footer strong { color: var(--mint); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .nav { padding: 16px 20px; }
-    .hero-stats { gap: 24px; }
-    .stat-num { font-size: 1.8rem; }
-    .packages-grid { grid-template-columns: 1fr; }
-    .extras-grid { grid-template-columns: repeat(2, 1fr); }
-    .estimator-grid { grid-template-columns: 1fr; }
-    .modal-hero, .modal-body { padding: 24px; }
-    .modal { margin: 0; border-radius: 20px 20px 0 0; }
-  }
-
-  /* Animations */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(16px);
-    animation: fadeUp 0.5s forwards;
-  }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .month-card:nth-child(1) { animation-delay: 0.05s; }
-  .month-card:nth-child(2) { animation-delay: 0.1s; }
-  .month-card:nth-child(3) { animation-delay: 0.15s; }
-  .month-card:nth-child(4) { animation-delay: 0.2s; }
-
+:root{--noir:#0a0f0a;--sombra:#111a10;--musgo:#1c2e1a;--helecho:#2a4228;--sage:#3d6b3a;--menta:#6fa86a;--niebla:#a8c5a4;--vapor:rgba(168,197,164,0.12);--barro:#4a3728;--corteza:#7a5c3a;--ambar:#c8922a;--dorado:#e8b84b;--crema:#f0ead8;--arena:#d8ccb4;--agua:#4a7a8c;--rio:#2a5a6c;}
+*{margin:0;padding:0;box-sizing:border-box;}
+::selection{background:var(--sage);color:var(--crema);}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--noir);color:var(--crema);overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--sombra);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 60%,rgba(74,122,140,0.15) 0%,transparent 60%),radial-gradient(ellipse 60% 70% at 80% 30%,rgba(42,66,40,0.5) 0%,transparent 60%),linear-gradient(170deg,#060d06 0%,#0f1c0e 35%,#141f12 60%,#0a0f0a 100%);}
+.mist{position:absolute;bottom:0;left:0;right:0;height:280px;background:linear-gradient(to top,rgba(111,168,106,0.05) 0%,rgba(74,122,140,0.03) 30%,transparent 100%);filter:blur(35px);}
+.trees{position:absolute;bottom:0;left:0;right:0;height:42vh;}
+.trees svg{width:100%;height:100%;}
+.nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:28px 52px;border-bottom:1px solid rgba(111,168,106,0.07);}
+.logo-wrap{display:flex;flex-direction:column;}
+.logo-main{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--crema);letter-spacing:0.12em;text-transform:uppercase;}
+.logo-sub{font-size:0.6rem;color:var(--menta);letter-spacing:0.2em;text-transform:uppercase;margin-top:2px;opacity:0.6;}
+.nav-links{display:flex;gap:28px;}
+.nav-link{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(240,234,216,0.4);text-decoration:none;transition:color 0.2s;}
+.nav-link:hover{color:var(--menta);}
+.nav-cta{background:transparent;border:1px solid rgba(111,168,106,0.3);color:var(--menta);padding:9px 22px;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all 0.3s;border-radius:2px;}
+.nav-cta:hover{background:rgba(111,168,106,0.1);border-color:var(--menta);}
+.hero-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 32px 200px;position:relative;z-index:5;}
+.eyebrow-row{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.ey-line{width:30px;height:1px;background:var(--menta);opacity:0.4;}
+.ey-txt{font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--menta);opacity:0.6;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,8vw,7rem);font-weight:400;color:var(--crema);line-height:0.95;margin-bottom:16px;}
+.hero-title em{font-style:italic;color:var(--menta);font-weight:300;}
+.hero-sub-line{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.5vw,3.2rem);color:rgba(240,234,216,0.4);font-weight:300;letter-spacing:0.06em;margin-bottom:44px;display:block;}
+.feature-strip{display:flex;border:1px solid rgba(111,168,106,0.1);overflow:hidden;border-radius:2px;margin-bottom:36px;}
+.feat{padding:16px 26px;border-right:1px solid rgba(111,168,106,0.1);text-align:center;}
+.feat:last-child{border-right:none;}
+.feat .fi{font-size:1.3rem;display:block;margin-bottom:5px;}
+.feat .fl{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(240,234,216,0.3);display:block;margin-bottom:2px;}
+.feat .fv{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--crema);font-weight:600;}
+.hero-desc{max-width:460px;font-size:0.85rem;line-height:1.8;color:rgba(240,234,216,0.38);font-weight:300;}
+.scroll-hint{position:absolute;bottom:130px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;z-index:5;animation:breathe 3s ease-in-out infinite;}
+.scroll-hint span{font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(111,168,106,0.4);}
+.scroll-bar{width:1px;height:44px;background:linear-gradient(to bottom,rgba(111,168,106,0.35),transparent);}
+@keyframes breathe{0%,100%{opacity:0.5;transform:translateX(-50%) translateY(0);}50%{opacity:1;transform:translateX(-50%) translateY(8px);}}
+/* AMENITIES */
+.amen-strip{background:var(--helecho);border-top:1px solid rgba(111,168,106,0.08);border-bottom:1px solid rgba(111,168,106,0.08);padding:20px 0;overflow:hidden;}
+.amen-track{display:flex;gap:0;animation:scroll-left 35s linear infinite;white-space:nowrap;}
+.amen-item{display:inline-flex;align-items:center;gap:10px;padding:0 32px;border-right:1px solid rgba(111,168,106,0.1);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(240,234,216,0.38);}
+.amen-item .ai{font-size:0.95rem;}
+@keyframes scroll-left{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+/* AMENITY HIGHLIGHTS */
+.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(111,168,106,0.07);border-top:1px solid rgba(111,168,106,0.07);border-bottom:1px solid rgba(111,168,106,0.07);}
+.hl-card{background:var(--sombra);padding:56px 40px;text-align:center;position:relative;overflow:hidden;transition:background 0.3s;}
+.hl-card:hover{background:var(--musgo);}
+.hl-card::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:1px;background:linear-gradient(to right,transparent,rgba(111,168,106,0.15),transparent);}
+.hl-i{font-size:2.8rem;margin-bottom:18px;display:block;}
+.hl-t{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--crema);margin-bottom:10px;}
+.hl-d{font-size:0.78rem;color:rgba(240,234,216,0.32);line-height:1.7;font-weight:300;max-width:250px;margin:0 auto;}
+.hl-tag{display:inline-block;margin-top:14px;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--menta);opacity:0.45;}
+/* SECTION */
+.wrap{padding:96px 52px;max-width:1400px;margin:0 auto;}
+.sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:24px;}
+.sec-ey{font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--menta);opacity:0.55;margin-bottom:10px;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;color:var(--crema);line-height:1.05;}
+.sec-title em{font-style:italic;color:var(--menta);}
+.sec-note{max-width:340px;font-size:0.78rem;color:rgba(240,234,216,0.3);line-height:1.7;font-weight:300;text-align:right;}
+/* FILTER */
+.filter-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:44px;}
+.filt{padding:7px 18px;border:1px solid rgba(111,168,106,0.15);background:transparent;color:rgba(240,234,216,0.35);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;border-radius:2px;transition:all 0.25s;}
+.filt:hover{color:var(--menta);border-color:rgba(111,168,106,0.35);}
+.filt.active{background:var(--sage);color:var(--crema);border-color:var(--sage);}
+/* MONTHS GRID */
+.months-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:rgba(111,168,106,0.07);border:1px solid rgba(111,168,106,0.07);}
+.mc{background:var(--sombra);padding:30px;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
+.mc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(111,168,106,0.04) 0%,transparent 60%);opacity:0;transition:opacity 0.3s;}
+.mc:hover{background:var(--musgo);transform:translateY(-2px);}
+.mc:hover::before{opacity:1;}
+.mc.hidden{display:none;}
+.mc-h{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
+.mc-month{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--crema);line-height:1;}
+.mc-season{font-size:0.58rem;color:var(--menta);letter-spacing:0.18em;text-transform:uppercase;margin-top:3px;opacity:0.55;}
+.mc-badge{font-size:1.3rem;line-height:1;}
+.mc-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px;}
+.chip{font-size:0.62rem;letter-spacing:0.06em;padding:4px 9px;border-radius:1px;border:1px solid;display:inline-flex;align-items:center;gap:4px;}
+.chip.peak{border-color:rgba(200,146,42,0.35);color:var(--dorado);background:rgba(200,146,42,0.05);}
+.chip.alta{border-color:rgba(111,168,106,0.25);color:var(--niebla);background:rgba(111,168,106,0.05);}
+.chip.media{border-color:rgba(240,234,216,0.1);color:rgba(240,234,216,0.35);background:transparent;}
+.mc-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(111,168,106,0.08);padding-top:14px;}
+.mc-price{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ambar);}
+.mc-price small{font-family:'Jost',sans-serif;font-size:0.58rem;color:rgba(240,234,216,0.25);font-weight:300;letter-spacing:0.1em;}
+.mc-open{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(111,168,106,0.45);transition:color 0.2s;}
+.mc:hover .mc-open{color:var(--menta);}
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(4,9,4,0.88);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(10px);}
+.overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--musgo);border:1px solid rgba(111,168,106,0.12);max-width:800px;width:100%;margin:auto;transform:translateY(20px);transition:transform 0.3s;position:relative;}
+.overlay.open .modal{transform:translateY(0);}
+.m-top{padding:44px 44px 32px;border-bottom:1px solid rgba(111,168,106,0.08);position:relative;}
+.m-close{position:absolute;top:18px;right:18px;background:rgba(111,168,106,0.07);border:1px solid rgba(111,168,106,0.12);color:rgba(240,234,216,0.45);width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;transition:all 0.2s;border-radius:2px;}
+.m-close:hover{color:var(--crema);background:rgba(111,168,106,0.14);}
+.m-tag{font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--menta);opacity:0.55;margin-bottom:10px;}
+.m-title{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:400;color:var(--crema);line-height:1;margin-bottom:10px;}
+.m-desc{font-size:0.82rem;color:rgba(240,234,216,0.4);line-height:1.7;font-weight:300;max-width:540px;}
+.m-body{padding:32px 44px 44px;}
+.msec{font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--menta);opacity:0.5;margin:28px 0 12px;display:flex;align-items:center;gap:10px;}
+.msec::after{content:'';flex:1;height:1px;background:rgba(111,168,106,0.1);}
+.evs{display:flex;flex-direction:column;gap:7px;}
+.ev{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(0,0,0,0.25);border:1px solid rgba(111,168,106,0.08);border-left:2px solid;}
+.ev.peak{border-left-color:var(--ambar);}
+.ev.alta{border-left-color:var(--menta);}
+.ev.media{border-left-color:rgba(240,234,216,0.12);}
+.ev-i{font-size:1.2rem;}
+.ev-n{font-size:0.84rem;font-weight:500;color:var(--crema);}
+.ev-f{font-size:0.7rem;color:rgba(240,234,216,0.3);margin-top:1px;}
+.ev-b{margin-left:auto;font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:1px;border:1px solid;flex-shrink:0;}
+.ev-b.peak{border-color:rgba(200,146,42,0.35);color:var(--dorado);}
+.ev-b.alta{border-color:rgba(111,168,106,0.3);color:var(--menta);}
+.ev-b.media{border-color:rgba(240,234,216,0.1);color:rgba(240,234,216,0.28);}
+.pkgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.pkg{background:rgba(0,0,0,0.28);border:1px solid rgba(111,168,106,0.08);padding:16px;transition:border-color 0.2s;}
+.pkg:hover{border-color:rgba(111,168,106,0.22);}
+.pkg-i{font-size:1.5rem;margin-bottom:7px;}
+.pkg-n{font-size:0.8rem;font-weight:600;color:var(--crema);margin-bottom:4px;}
+.pkg-d{font-size:0.72rem;color:rgba(240,234,216,0.38);line-height:1.5;font-weight:300;}
+.pkg-p{margin-top:8px;font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--ambar);}
+.exts{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+.ext{background:rgba(0,0,0,0.2);border:1px solid rgba(111,168,106,0.07);padding:13px 10px;text-align:center;}
+.ext .xi{font-size:1.3rem;margin-bottom:4px;}
+.ext .xn{font-size:0.68rem;color:rgba(240,234,216,0.5);font-weight:400;}
+.ext .xp{font-size:0.66rem;color:var(--menta);margin-top:2px;opacity:0.65;}
+.tips{background:rgba(8,14,8,0.6);border:1px solid rgba(111,168,106,0.1);border-left:2px solid var(--sage);padding:20px 22px;}
+.tip{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:0.78rem;color:rgba(240,234,216,0.45);line-height:1.6;font-weight:300;}
+.tip:last-child{margin-bottom:0;}
+.tip-i{font-size:0.88rem;flex-shrink:0;margin-top:1px;}
+/* GROWTH */
+.growth-bg{background:var(--noir);border-top:1px solid rgba(111,168,106,0.05);position:relative;}
+.growth-bg::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(111,168,106,0.12),transparent);}
+.g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1px;background:rgba(111,168,106,0.06);border:1px solid rgba(111,168,106,0.06);}
+.gc{background:var(--noir);padding:34px 28px;transition:background 0.3s;}
+.gc:hover{background:var(--sombra);}
+.gc-n{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:400;color:rgba(111,168,106,0.07);line-height:1;margin-bottom:18px;}
+.gc-t{font-size:0.85rem;font-weight:600;color:var(--niebla);margin-bottom:8px;}
+.gc-d{font-size:0.76rem;color:rgba(240,234,216,0.32);line-height:1.7;font-weight:300;}
+.gc-tag{display:inline-block;margin-top:12px;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--menta);opacity:0.4;border-bottom:1px solid rgba(111,168,106,0.18);padding-bottom:2px;}
+/* ESTIMATOR */
+.est-bg{background:var(--sombra);border-top:1px solid rgba(111,168,106,0.05);}
+.est-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:52px;}
+.est-controls{display:flex;flex-direction:column;gap:26px;}
+.ctrl-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,234,216,0.3);display:block;margin-bottom:8px;}
+.ctrl-slider{width:100%;appearance:none;height:2px;background:rgba(111,168,106,0.12);outline:none;}
+.ctrl-slider::-webkit-slider-thumb{appearance:none;width:15px;height:15px;border-radius:50%;background:var(--menta);cursor:pointer;border:2px solid var(--sombra);box-shadow:0 0 0 1px rgba(111,168,106,0.25);}
+.ctrl-val{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ambar);margin-top:5px;font-weight:600;}
+.est-result{background:var(--musgo);border:1px solid rgba(111,168,106,0.1);padding:36px;display:flex;flex-direction:column;justify-content:space-between;}
+.r-label{font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(111,168,106,0.45);margin-bottom:5px;}
+.r-big{font-family:'Cormorant Garamond',serif;font-size:3.5rem;color:var(--dorado);font-weight:600;line-height:1;margin-bottom:32px;}
+.r-rows{display:flex;flex-direction:column;}
+.r-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(111,168,106,0.07);font-size:0.76rem;}
+.r-row:last-child{border:none;}
+.r-row .rl{color:rgba(240,234,216,0.28);font-weight:300;}
+.r-row .rv{color:var(--crema);font-weight:500;}
+/* FOOTER */
+footer{background:#060d06;padding:52px;border-top:1px solid rgba(111,168,106,0.07);}
+.foot-in{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px;}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(240,234,216,0.4);}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;}
+.foot-link{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(111,168,106,0.35);text-decoration:none;transition:color 0.2s;}
+.foot-link:hover{color:var(--menta);}
+.foot-copy{font-size:0.62rem;color:rgba(240,234,216,0.12);width:100%;margin-top:22px;padding-top:22px;border-top:1px solid rgba(111,168,106,0.05);}
+/* Responsive */
+@media(max-width:900px){
+.nav{padding:18px 20px;}
+.nav-links{display:none;}
+.wrap{padding:64px 20px;}
+.highlights{grid-template-columns:1fr;}
+.pkgs{grid-template-columns:1fr;}
+.est-grid{grid-template-columns:1fr;}
+.m-top,.m-body{padding:24px;}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.mc{animation:fadeUp 0.4s ease both;}
+.mc:nth-child(1){animation-delay:0.02s}.mc:nth-child(2){animation-delay:0.05s}.mc:nth-child(3){animation-delay:0.08s}.mc:nth-child(4){animation-delay:0.11s}.mc:nth-child(5){animation-delay:0.14s}.mc:nth-child(6){animation-delay:0.17s}
 </style>
 </head>
 <body>
@@ -776,120 +189,158 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="tree-silhouette"></div>
-
-  <nav class="nav">
-    <div class="logo">🌲 Espacio Bosque La Quemada</div>
-    <div class="nav-badge">Plan de Ventas 2026</div>
-  </nav>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">Puerto Varas · Patagonia Verde</div>
-    <h1 class="hero-title">
-      Cada fecha,<br>
-      una <em>experiencia</em><br>
-      que vender
-    </h1>
-    <p class="hero-sub">
-      Calendario anual de oportunidades comerciales para tu cabaña en el bosque. 
-      Fechas especiales, paquetes, extras y estrategias para maximizar tu ocupación todo el año.
-    </p>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">12</div>
-        <div class="stat-label">Meses planificados</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">34+</div>
-        <div class="stat-label">Fechas clave</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">10★</div>
-        <div class="stat-label">Calificación Booking</div>
-      </div>
-    </div>
+  <div class="mist"></div>
+  <div class="trees">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><radialGradient id="gr" cx="50%" cy="100%" r="60%"><stop offset="0%" stop-color="rgba(111,168,106,0.05)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
+      <rect width="1440" height="300" fill="url(#gr)"/>
+      <path d="M-20,300 L-20,180 L18,55 L56,180 L56,300Z" fill="#0d1a0c" opacity="0.9"/>
+      <path d="M30,300 L30,195 L62,82 L94,195 L94,300Z" fill="#0a1509" opacity="0.85"/>
+      <path d="M80,300 L80,205 L112,98 L144,205 L144,300Z" fill="#0f1e0d" opacity="0.8"/>
+      <path d="M128,300 L128,185 L168,52 L208,185 L208,300Z" fill="#0c1a0b" opacity="0.9"/>
+      <path d="M192,300 L192,210 L224,105 L256,210 L256,300Z" fill="#09130a" opacity="0.8"/>
+      <path d="M238,300 L238,195 L278,68 L318,195 L318,300Z" fill="#0e1d0d" opacity="0.85"/>
+      <path d="M345,300 L345,168 L404,28 L462,168 L462,300Z" fill="#0a150a" opacity="0.95"/>
+      <path d="M425,300 L425,205 L462,98 L500,205 L500,300Z" fill="#0d1a0c" opacity="0.8"/>
+      <path d="M486,300 L486,182 L540,48 L594,182 L594,300Z" fill="#0b1709" opacity="0.9"/>
+      <path d="M562,300 L562,196 L610,82 L658,196 L658,300Z" fill="#0f1e0e" opacity="0.85"/>
+      <path d="M632,300 L632,172 L692,32 L752,172 L752,300Z" fill="#0a1409" opacity="0.95"/>
+      <path d="M714,300 L714,206 L756,94 L798,206 L798,300Z" fill="#0d1c0c" opacity="0.8"/>
+      <path d="M784,300 L784,182 L838,52 L892,182 L892,300Z" fill="#0b1709" opacity="0.9"/>
+      <path d="M862,300 L862,202 L906,88 L950,202 L950,300Z" fill="#0e1e0d" opacity="0.85"/>
+      <path d="M932,300 L932,175 L990,40 L1048,175 L1048,300Z" fill="#0a1409" opacity="0.92"/>
+      <path d="M1012,300 L1012,206 L1055,98 L1098,206 L1098,300Z" fill="#0c1b0b" opacity="0.8"/>
+      <path d="M1082,300 L1082,188 L1136,52 L1190,188 L1190,300Z" fill="#0f1f0d" opacity="0.88"/>
+      <path d="M1172,300 L1172,206 L1215,94 L1258,206 L1258,300Z" fill="#0a1509" opacity="0.82"/>
+      <path d="M1248,300 L1248,178 L1302,46 L1356,178 L1356,300Z" fill="#0d1c0c" opacity="0.9"/>
+      <path d="M1334,300 L1334,202 L1376,88 L1418,202 L1418,300Z" fill="#0b1709" opacity="0.85"/>
+      <path d="M1400,300 L1400,182 L1444,58 L1488,182 L1488,300Z" fill="#0f1f0e" opacity="0.9"/>
+      <rect x="0" y="282" width="1440" height="18" fill="#060d06"/>
+    </svg>
   </div>
-  <div class="scroll-hint">Explorar</div>
+  <nav class="nav">
+    <div class="logo-wrap">
+      <span class="logo-main">Espacio Bosque La Quemada</span>
+      <span class="logo-sub">Puerto Varas · Los Lagos · Chile</span>
+    </div>
+    <div class="nav-links">
+      <a href="#cal" class="nav-link">Calendario</a>
+      <a href="#est" class="nav-link">Estrategias</a>
+      <a href="#calc" class="nav-link">Estimador</a>
+    </div>
+    <button class="nav-cta" onclick="window.open('https://www.booking.com/hotel/cl/espacio-bosque-la-quemada.es.html','_blank')">Reservar →</button>
+  </nav>
+  <div class="hero-body">
+    <div class="eyebrow-row">
+      <div class="ey-line"></div>
+      <span class="ey-txt">Plan de ventas anual · Chile 2026</span>
+      <div class="ey-line"></div>
+    </div>
+    <h1 class="hero-title"><em>Bosque.</em> Río. Tinaja.</h1>
+    <span class="hero-sub-line">12 meses de experiencias que vender</span>
+    <div class="feature-strip">
+      <div class="feat"><span class="fi">🌲</span><span class="fl">Entorno</span><span class="fv">Bosque nativo</span></div>
+      <div class="feat"><span class="fi">♨️</span><span class="fl">Diferencial</span><span class="fv">Tinaja privada</span></div>
+      <div class="feat"><span class="fi">🌊</span><span class="fl">En el predio</span><span class="fv">Río propio</span></div>
+      <div class="feat"><span class="fi">🏔️</span><span class="fl">A 13 km</span><span class="fv">Volcán Calbuco</span></div>
+      <div class="feat"><span class="fi">⭐</span><span class="fl">Booking</span><span class="fv">Nota 10 / 10</span></div>
+    </div>
+    <p class="hero-desc">Calendario completo de feriados oficiales chilenos 2026, paquetes sugeridos, extras vendibles y estrategias de crecimiento para tu cabaña en Puerto Varas.</p>
+  </div>
+  <div class="scroll-hint"><span>Explorar</span><div class="scroll-bar"></div></div>
 </section>
 
-<!-- MAIN CALENDAR -->
-<div class="section">
-  <h2 class="section-title">Calendario de Oportunidades</h2>
-  <p class="section-sub">Haz clic en cualquier mes para ver fechas clave, paquetes sugeridos, extras de venta y consejos de marketing personalizados.</p>
+<!-- AMENITIES STRIP -->
+<div class="amen-strip"><div class="amen-track" id="amenTrack"></div></div>
 
-  <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterMonths('all')">Todos los meses</button>
-    <button class="filter-btn" onclick="filterMonths('verano')">☀️ Verano</button>
-    <button class="filter-btn" onclick="filterMonths('otono')">🍂 Otoño</button>
-    <button class="filter-btn" onclick="filterMonths('invierno')">❄️ Invierno</button>
-    <button class="filter-btn" onclick="filterMonths('primavera')">🌸 Primavera</button>
-    <button class="filter-btn" onclick="filterMonths('alta')">🔥 Alta demanda</button>
+<!-- HIGHLIGHTS: TINAJA, RÍO, BOSQUE -->
+<div class="highlights">
+  <div class="hl-card">
+    <span class="hl-i">♨️</span>
+    <div class="hl-t">Tinaja Privada</div>
+    <div class="hl-d">El activo más vendible de la cabaña. Bajo las estrellas del sur, rodeada de bosque. Diferencial que justifica precios premium en cualquier época del año.</div>
+    <span class="hl-tag">Experiencia única</span>
   </div>
-
-  <div class="months-grid" id="monthsGrid"></div>
+  <div class="hl-card">
+    <span class="hl-i">🌊</span>
+    <div class="hl-t">Río en el Predio</div>
+    <div class="hl-d">Sonido constante del agua. Pesca recreativa, meditación junto a la orilla, fotografía de naturaleza. Pocos alojamientos del sur pueden ofrecer esto.</div>
+    <span class="hl-tag">Sonido del sur</span>
+  </div>
+  <div class="hl-card">
+    <span class="hl-i">🌲</span>
+    <div class="hl-t">Bosque Nativo</div>
+    <div class="hl-d">Alerce, coihue, ulmo. Cambia con cada estación: verde en verano, neblinoso en invierno, florido en primavera. 4 temporadas = 4 campañas de marketing distintas.</div>
+    <span class="hl-tag">4 estaciones, 4 razones</span>
+  </div>
 </div>
 
-<!-- GROWTH STRATEGIES -->
-<div class="growth-section">
-  <div class="growth-inner">
-    <h2 class="growth-title">Estrategias para Crecer en Ventas</h2>
-    <p class="growth-sub">Acciones concretas para aumentar ocupación, ticket promedio y visibilidad de tu cabaña.</p>
-    <div class="growth-grid" id="growthGrid"></div>
-  </div>
-</div>
-
-<!-- REVENUE ESTIMATOR -->
-<div class="estimator-section">
-  <div class="estimator-inner">
-    <h2 class="section-title">Estimador de Ingresos Anuales</h2>
-    <p class="section-sub">Ajusta los parámetros para proyectar tu potencial de ingresos con las estrategias de este plan.</p>
-
-    <div class="estimator-grid">
-      <div class="estimate-controls">
-        <div class="control-group">
-          <label class="control-label">Precio base por noche (CLP)</label>
-          <input type="range" class="control-slider" id="basePrice" min="60000" max="250000" step="5000" value="95000" oninput="updateEstimate()">
-          <div class="control-value" id="basePriceVal">$95.000</div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Ocupación promedio anual (%)</label>
-          <input type="range" class="control-slider" id="occupancy" min="20" max="95" value="55" oninput="updateEstimate()">
-          <div class="control-value" id="occupancyVal">55%</div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">% fechas especiales con precio premium</label>
-          <input type="range" class="control-slider" id="premiumDays" min="0" max="40" value="20" oninput="updateEstimate()">
-          <div class="control-value" id="premiumDaysVal">20%</div>
-        </div>
-        <div class="control-group">
-          <label class="control-label">Venta de extras y paquetes adicionales (CLP/mes)</label>
-          <input type="range" class="control-slider" id="extras" min="0" max="300000" step="10000" value="80000" oninput="updateEstimate()">
-          <div class="control-value" id="extrasVal">$80.000</div>
-        </div>
+<!-- CALENDAR -->
+<div id="cal">
+  <div class="wrap">
+    <div class="sec-header">
+      <div>
+        <div class="sec-ey">Feriados oficiales Chile 2026 · Fechas festivas y celebraciones</div>
+        <h2 class="sec-title">El año completo,<br><em>mes a mes</em></h2>
       </div>
+      <p class="sec-note">Todas las fechas corresponden al calendario oficial de feriados legales de Chile 2026. Haz clic en cualquier mes para ver paquetes, extras y estrategias.</p>
+    </div>
+    <div class="filter-row">
+      <button class="filt active" onclick="filtrar('all',this)">Todos</button>
+      <button class="filt" onclick="filtrar('verano',this)">☀️ Verano</button>
+      <button class="filt" onclick="filtrar('otono',this)">🍂 Otoño</button>
+      <button class="filt" onclick="filtrar('invierno',this)">❄️ Invierno</button>
+      <button class="filt" onclick="filtrar('primavera',this)">🌸 Primavera</button>
+      <button class="filt" onclick="filtrar('alta',this)">🔥 Alta demanda</button>
+    </div>
+    <div class="months-grid" id="mGrid"></div>
+  </div>
+</div>
 
-      <div class="estimate-result">
-        <div class="result-label">Ingreso anual estimado</div>
-        <div class="result-big" id="totalIncome">$14.890.000</div>
-        <div class="result-row">
-          <span class="label">Noches ocupadas/año</span>
-          <span class="value" id="nightsOccupied">201 noches</span>
+<!-- GROWTH -->
+<div class="growth-bg" id="est">
+  <div class="wrap">
+    <div class="sec-header">
+      <div>
+        <div class="sec-ey">Crecimiento comercial</div>
+        <h2 class="sec-title">Estrategias para<br><em>vender más</em></h2>
+      </div>
+      <p class="sec-note">12 acciones concretas para aumentar ocupación, ticket promedio y visibilidad. Ordenadas por impacto.</p>
+    </div>
+    <div class="g-grid" id="gGrid"></div>
+  </div>
+</div>
+
+<!-- ESTIMATOR -->
+<div class="est-bg" id="calc">
+  <div class="wrap">
+    <div class="sec-header">
+      <div>
+        <div class="sec-ey">Proyección financiera</div>
+        <h2 class="sec-title">Estima tus<br><em>ingresos anuales</em></h2>
+      </div>
+      <p class="sec-note">Ajusta los parámetros para ver tu potencial real aplicando las estrategias de este plan.</p>
+    </div>
+    <div class="est-grid">
+      <div class="est-controls">
+        <div><label class="ctrl-label">Precio base por noche (CLP)</label><input type="range" class="ctrl-slider" id="sP" min="60000" max="280000" step="5000" value="100000" oninput="calc()"><div class="ctrl-val" id="vP">$100.000</div></div>
+        <div><label class="ctrl-label">Ocupación promedio anual (%)</label><input type="range" class="ctrl-slider" id="sO" min="20" max="95" value="58" oninput="calc()"><div class="ctrl-val" id="vO">58%</div></div>
+        <div><label class="ctrl-label">% noches en fechas especiales (+60% precio)</label><input type="range" class="ctrl-slider" id="sPr" min="0" max="40" value="22" oninput="calc()"><div class="ctrl-val" id="vPr">22%</div></div>
+        <div><label class="ctrl-label">Extras y paquetes adicionales por mes (CLP)</label><input type="range" class="ctrl-slider" id="sE" min="0" max="400000" step="10000" value="90000" oninput="calc()"><div class="ctrl-val" id="vE">$90.000</div></div>
+        <div><label class="ctrl-label">% reservas directas (sin comisión plataforma)</label><input type="range" class="ctrl-slider" id="sD" min="0" max="80" value="25" oninput="calc()"><div class="ctrl-val" id="vD">25%</div></div>
+      </div>
+      <div class="est-result">
+        <div>
+          <div class="r-label">Ingreso anual proyectado</div>
+          <div class="r-big" id="rT">—</div>
         </div>
-        <div class="result-row">
-          <span class="label">Ingreso base noches</span>
-          <span class="value" id="baseIncome">$13.850.000</span>
-        </div>
-        <div class="result-row">
-          <span class="label">Premio fechas especiales</span>
-          <span class="value" id="premiumIncome">$830.000</span>
-        </div>
-        <div class="result-row">
-          <span class="label">Extras y paquetes</span>
-          <span class="value" id="extrasIncome">$960.000</span>
-        </div>
-        <div class="result-row">
-          <span class="label">Ticket promedio por noche</span>
-          <span class="value" id="avgTicket">$74.000</span>
+        <div class="r-rows">
+          <div class="r-row"><span class="rl">Noches ocupadas / año</span><span class="rv" id="rN">—</span></div>
+          <div class="r-row"><span class="rl">Ingreso base</span><span class="rv" id="rB">—</span></div>
+          <div class="r-row"><span class="rl">Prima fechas especiales</span><span class="rv" id="rPr">—</span></div>
+          <div class="r-row"><span class="rl">Extras y paquetes</span><span class="rv" id="rEx">—</span></div>
+          <div class="r-row"><span class="rl">Ahorro comisiones (canal directo)</span><span class="rv" id="rD" style="color:var(--menta)">—</span></div>
+          <div class="r-row" style="border-top:1px solid rgba(111,168,106,0.12);padding-top:10px;margin-top:4px"><span class="rl">Ticket promedio / noche</span><span class="rv" id="rTk" style="color:var(--dorado)">—</span></div>
         </div>
       </div>
     </div>
@@ -898,641 +349,373 @@
 
 <!-- FOOTER -->
 <footer>
-  <strong>Espacio Bosque La Quemada</strong> — Puerto Varas, Los Lagos, Chile<br>
-  A 13 km del Volcán Calbuco · Parque Nacional Alerce Andino<br>
-  <a href="https://www.booking.com/hotel/cl/espacio-bosque-la-quemada.es.html" style="color:var(--mint);text-decoration:none;" target="_blank">Ver en Booking.com ↗</a>
-  &nbsp;·&nbsp;
-  <a href="https://maps.app.goo.gl/emGyMKQKmmNLsf36A" style="color:var(--mint);text-decoration:none;" target="_blank">Ver en Google Maps ↗</a>
-  <br><br>
-  <span style="opacity:0.4;font-size:0.7rem;">Plan de Ventas generado con IA · 2026</span>
+  <div class="foot-in">
+    <div class="foot-logo">Espacio Bosque La Quemada</div>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/espaciobosquelaquemada/" target="_blank" class="foot-link">Instagram ↗</a>
+      <a href="https://www.booking.com/hotel/cl/espacio-bosque-la-quemada.es.html" target="_blank" class="foot-link">Booking.com ↗</a>
+      <a href="https://maps.app.goo.gl/emGyMKQKmmNLsf36A" target="_blank" class="foot-link">Google Maps ↗</a>
+    </div>
+    <div class="foot-copy">Puerto Varas · Región de Los Lagos · Patagonia · Chile &nbsp;·&nbsp; Plan de Ventas 2026</div>
+  </div>
 </footer>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+<div class="overlay" id="overlay" onclick="cerrarOv(event)">
   <div class="modal" id="modal">
-    <div class="modal-hero" id="modalHero">
-      <button class="modal-close" onclick="closeModalBtn()">✕</button>
-      <div class="modal-month-tag" id="modalTag">Enero</div>
-      <h2 class="modal-title" id="modalTitle">Verano Patagónico</h2>
-      <p class="modal-subtitle" id="modalSubtitle"></p>
+    <div class="m-top" id="mTop">
+      <button class="m-close" onclick="cerrar()">✕</button>
+      <div class="m-tag" id="mTag"></div>
+      <div class="m-title" id="mTitle"></div>
+      <div class="m-desc" id="mDesc"></div>
     </div>
-    <div class="modal-body" id="modalBody"></div>
+    <div class="m-body" id="mBody"></div>
   </div>
 </div>
 
 <script>
-const MONTHS_DATA = [
-  {
-    id: 'enero',
-    name: 'Enero',
-    season: 'Verano',
-    seasonKey: 'verano',
-    emoji: '☀️',
-    intensity: 'peak',
-    priceRange: '$120.000 – $180.000',
-    subtitle: 'Temporada alta máxima. El bosque en todo su esplendor veraniego. Vuelos y rutas al sur saturadas — reserva con meses de anticipación.',
-    bgColor: 'linear-gradient(135deg, #fff8e1, #fffde7)',
-    dates: [
-      { icon: '🎆', name: 'Año Nuevo', date: '1 ene', priority: 'alta' },
-      { icon: '🏖️', name: 'Temporada Playa/Lagos', date: 'Todo enero', priority: 'alta' },
-      { icon: '🎓', name: 'Vacaciones Escolares', date: 'Ene–Feb', priority: 'alta' },
-    ],
-    packages: [
-      { icon: '🥂', name: 'Año Nuevo Bosque', desc: 'Bienvenida con espumante, decoración festiva, fuegos artificiales privados en terraza', price: '+$45.000' },
-      { icon: '🍳', name: 'Desayuno Gourmet', desc: 'Canasta artesanal con mermeladas, pan amasado, huevos, frutas y café', price: '+$18.000' },
-      { icon: '🚣', name: 'Pack Lagos & Volcanes', desc: 'Guía local, traslado al Lago Llanquihue y Volcán Calbuco, picnic incluido', price: '+$60.000' },
-      { icon: '🛶', name: 'Kayak en el Lago', desc: 'Alquiler de equipo y ruta guiada por lago Llanquihue', price: '+$35.000' },
-    ],
-    extras: [
-      { i: '🍷', n: 'Vino regional', p: '+$12.000' },
-      { i: '🪵', n: 'Leña calefacción', p: '+$8.000' },
-      { i: '📷', n: 'Sesión fotográfica', p: '+$40.000' },
-      { i: '🧺', n: 'Picnic canasta', p: '+$22.000' },
-      { i: '🕯️', n: 'Decoración romántica', p: '+$25.000' },
-      { i: '🍫', n: 'Box bienvenida', p: '+$15.000' },
-    ],
-    tips: [
-      { i: '📅', t: 'Publicar disponibilidad de Navidad y Año Nuevo en septiembre–octubre, cuando empieza la demanda.' },
-      { i: '📱', t: 'Crear Stories de Instagram mostrando el bosque en verano para captar viajeros que buscan alternativa fresca al calor citadino.' },
-      { i: '💳', t: 'Ofrecer tarifa no reembolsable con 20% descuento para asegurar reservas tempranas.' },
-      { i: '🤝', t: 'Aliarse con guías de turismo de Puerto Varas para recibir referidos a cambio de comisión.' },
-    ]
-  },
-  {
-    id: 'febrero',
-    name: 'Febrero',
-    season: 'Verano',
-    seasonKey: 'verano',
-    emoji: '🌊',
-    intensity: 'peak',
-    priceRange: '$110.000 – $170.000',
-    subtitle: 'Mes de parejas y familias. Semana Santa anticipada en algunos años. Máxima ocupación del año junto a enero.',
-    bgColor: 'linear-gradient(135deg, #e3f2fd, #e8f5e9)',
-    dates: [
-      { icon: '💑', name: 'Día de San Valentín', date: '14 feb', priority: 'alta' },
-      { icon: '🏖️', name: 'Temporada Verano Plena', date: 'Todo febrero', priority: 'alta' },
-      { icon: '🎓', name: 'Vacaciones Escolares', date: 'Hasta feb', priority: 'alta' },
-    ],
-    packages: [
-      { icon: '❤️', name: 'Escapada San Valentín', desc: 'Pétalos de rosa, velas, champagne, cena en terraza con menú especial', price: '+$65.000' },
-      { icon: '👨‍👩‍👧', name: 'Semana Familiar', desc: '7 noches + actividades: senderismo, kayak, visita gastronomía local', price: '-15% semana' },
-      { icon: '🍃', name: 'Retiro de Pareja', desc: 'Masaje en cabaña, baño de bosque guiado (shinrin-yoku), cena privada', price: '+$80.000' },
-      { icon: '📸', name: 'Honeymoon Package', desc: 'Decoración floral, champagne, desayuno en cama, late checkout', price: '+$70.000' },
-    ],
-    extras: [
-      { i: '🌹', n: 'Arreglo floral', p: '+$18.000' },
-      { i: '🫙', n: 'Conservas artesanales', p: '+$10.000' },
-      { i: '🍓', n: 'Frutas del sur', p: '+$12.000' },
-      { i: '🧖', n: 'Masaje en cabaña', p: '+$45.000' },
-      { i: '🌙', n: 'Cena bajo las estrellas', p: '+$55.000' },
-      { i: '🎵', n: 'Música en vivo', p: '+$30.000' },
-    ],
-    tips: [
-      { i: '💌', t: 'Lanzar campaña de San Valentín en redes en la primera semana de enero. Usar copy: "El bosque más romántico del sur te espera."' },
-      { i: '🎯', t: 'Crear landing page o historia destacada en Instagram exclusiva para "Escapadas de Pareja".' },
-      { i: '📦', t: 'Paquetizar los extras en un solo precio con nombre atractivo. Ejemplo: "Pack Amor Patagónico — $69.990".' },
-    ]
-  },
-  {
-    id: 'marzo',
-    name: 'Marzo',
-    season: 'Otoño',
-    seasonKey: 'otono',
-    emoji: '🍂',
-    intensity: 'high',
-    priceRange: '$80.000 – $120.000',
-    subtitle: 'Inicio del otoño sureño. Colores espectaculares. Semana Santa puede caer aquí. Turismo de naturaleza y descanso.',
-    bgColor: 'linear-gradient(135deg, #fff3e0, #fbe9e7)',
-    dates: [
-      { icon: '✝️', name: 'Semana Santa (si aplica)', date: 'Mar–Abr', priority: 'alta' },
-      { icon: '🍂', name: 'Inicio Otoño Austral', date: '21 mar', priority: 'media' },
-      { icon: '🌾', name: 'Fiestas de Vendimia', date: 'Marzo', priority: 'baja' },
-    ],
-    packages: [
-      { icon: '🍂', name: 'Otoño Mágico', desc: 'Guía de fotografía de follaje, caminata al bosque nativo, fondue de queso', price: '+$40.000' },
-      { icon: '✝️', name: 'Semana Santa en el Bosque', desc: 'Descanso total: sin wifi (opción), cocina equipada con kit especial, lecturas disponibles', price: '+$30.000' },
-      { icon: '📚', name: 'Retiro de Desconexión', desc: 'Cesta de libros, bloc de notas, infusiones, sin TV (opción)', price: '+$20.000' },
-      { icon: '🍄', name: 'Ruta Gastronómica', desc: 'Visita a productores locales de quesos, salmón, mermeladas artesanales', price: '+$50.000' },
-    ],
-    extras: [
-      { i: '☕', n: 'Set infusiones', p: '+$8.000' },
-      { i: '🧀', n: 'Tabla artesanal', p: '+$20.000' },
-      { i: '📖', n: 'Kit libros', p: '+$12.000' },
-      { i: '🧦', n: 'Set comodidad', p: '+$15.000' },
-      { i: '🪵', n: 'Leña extra', p: '+$8.000' },
-      { i: '🫖', n: 'Tetera especial', p: '+$10.000' },
-    ],
-    tips: [
-      { i: '📸', t: 'El otoño en el sur es fotogénicamente único. Publicar fotos del bosque cambiando de color en Instagram y Pinterest.' },
-      { i: '🎯', t: 'Crear paquete "Retiro Digital Detox" para profesionales y creativos de Santiago.' },
-      { i: '💬', t: 'Pedir reviews a huéspedes anteriores de verano para fortalecer perfil antes de la temporada baja.' },
-    ]
-  },
-  {
-    id: 'abril',
-    name: 'Abril',
-    season: 'Otoño',
-    seasonKey: 'otono',
-    emoji: '🌧️',
-    intensity: 'high',
-    priceRange: '$75.000 – $130.000',
-    subtitle: 'Semana Santa suele caer aquí. Feriados largos con gran movimiento. El bosque en colores otoñales.',
-    bgColor: 'linear-gradient(135deg, #fce4ec, #fff3e0)',
-    dates: [
-      { icon: '✝️', name: 'Semana Santa / Semana de Turismo', date: 'Abr (variable)', priority: 'alta' },
-      { icon: '🎆', name: 'Semana Santa Feriado Largo', date: 'Jue–Dom', priority: 'alta' },
-    ],
-    packages: [
-      { icon: '✝️', name: 'Escape Semana Santa', desc: 'Mínimo 3 noches, kit de bienvenida artesanal, fogón de bienvenida', price: 'Mín 3N' },
-      { icon: '🌿', name: 'Pack Naturaleza Viva', desc: 'Senderismo Alerce Andino guiado, almuerzo en el bosque, terma cercana', price: '+$55.000' },
-      { icon: '🎣', name: 'Pesca Recreativa', desc: 'Equipo de pesca, guía fluvial, cocinado del resultado', price: '+$65.000' },
-      { icon: '🧘', name: 'Retiro Yoga Bosque', desc: 'Mat, clases de yoga al amanecer en la terraza, meditación guiada', price: '+$35.000' },
-    ],
-    extras: [
-      { i: '🐟', n: 'Salmón local fresco', p: '+$22.000' },
-      { i: '🍷', n: 'Vino carménère', p: '+$14.000' },
-      { i: '🧺', n: 'Canasta Semana Santa', p: '+$25.000' },
-      { i: '🌿', n: 'Aceites esenciales', p: '+$12.000' },
-      { i: '🎸', n: 'Guitarra prestada', p: '+$0' },
-      { i: '🗺️', n: 'Mapa rutas locales', p: '+$0' },
-    ],
-    tips: [
-      { i: '📅', t: 'Activar política de mínimo 3 noches en Semana Santa desde enero. Es estándar en el sur y los viajeros lo aceptan.' },
-      { i: '🤝', t: 'Coordinar con spas y termales cercanas para ofrecer paquetes combinados.' },
-      { i: '🌐', t: 'Semana Santa es ideal para captar turismo argentino —  publicar en redes en español neutro con conversión de precios.' },
-    ]
-  },
-  {
-    id: 'mayo',
-    name: 'Mayo',
-    season: 'Otoño',
-    seasonKey: 'otono',
-    emoji: '👨‍👩‍👧',
-    intensity: 'media',
-    priceRange: '$70.000 – $100.000',
-    subtitle: 'Día de la Madre. Fiestas Patrias en la mente. Temporada baja pero con nichos rentables: parejas y celebraciones familiares.',
-    bgColor: 'linear-gradient(135deg, #e8eaf6, #f3e5f5)',
-    dates: [
-      { icon: '👩', name: 'Día de la Madre', date: 'Segundo domingo de mayo', priority: 'alta' },
-      { icon: '🏋️', name: 'Día del Trabajador', date: '1 may (feriado)', priority: 'media' },
-      { icon: '🕯️', name: 'Glorias Navales', date: '21 may (feriado)', priority: 'media' },
-    ],
-    packages: [
-      { icon: '👩', name: 'Fuga con Mamá', desc: 'Desayuno en cama, masaje, flores, carta personalizada, late checkout', price: '+$60.000' },
-      { icon: '🥘', name: 'Cena Familiar Especial', desc: 'Menú para 4 personas, cazuela de vacuno y postre artesanal', price: '+$50.000' },
-      { icon: '🌺', name: 'Spa Day Mamá', desc: 'Facial, masaje de pies, aromaterapia, infusiones herbales del sur', price: '+$45.000' },
-      { icon: '📷', name: 'Sesión Foto Familiar', desc: 'Fotógrafa local en el bosque, 30 fotos editadas entregadas digitalmente', price: '+$60.000' },
-    ],
-    extras: [
-      { i: '💐', n: 'Ramo flores locales', p: '+$15.000' },
-      { i: '🎂', n: 'Torta artesanal', p: '+$22.000' },
-      { i: '🧴', n: 'Set spa', p: '+$18.000' },
-      { i: '🍫', n: 'Chocolates finos', p: '+$12.000' },
-      { i: '🎁', n: 'Caja regalo personalizada', p: '+$20.000' },
-      { i: '🐾', n: 'Bienvenida mascotas', p: '+$10.000' },
-    ],
-    tips: [
-      { i: '📲', t: 'Publicar: "El mejor regalo para mamá: una escapada al bosque patagónico." En Instagram la segunda quincena de abril.' },
-      { i: '🎯', t: 'Crear tarjeta de regalo digital descargable. Permite que hijos regalen la estadía y reserven después.' },
-      { i: '💡', t: '21 de mayo es feriado puente frecuente. Activar descuento especial "Feriado Patrias" con 3 noches.' },
-    ]
-  },
-  {
-    id: 'junio',
-    name: 'Junio',
-    season: 'Invierno',
-    seasonKey: 'invierno',
-    emoji: '❄️',
-    intensity: 'media',
-    priceRange: '$65.000 – $90.000',
-    subtitle: 'Inicio del invierno. El bosque nevado es sublime. San Pedro y San Pablo. Temporada baja convertible en experiencia premium.',
-    bgColor: 'linear-gradient(135deg, #e3f2fd, #e8eaf6)',
-    dates: [
-      { icon: '👨', name: 'Día del Padre', date: 'Tercer domingo de junio', priority: 'alta' },
-      { icon: '⛄', name: 'Solsticio de Invierno', date: '21 jun', priority: 'media' },
-      { icon: '🕯️', name: 'San Pedro y San Pablo', date: '29 jun (feriado)', priority: 'media' },
-    ],
-    packages: [
-      { icon: '👨', name: 'Fuga del Padre', desc: 'Pack aventura: senderismo, kayak de invierno, fogón nocturno, cerveza artesanal local', price: '+$55.000' },
-      { icon: '⛺', name: 'Noche Solsticio', desc: 'Fogata solsticio, chocolate caliente, cielo estrellado (telescopio disponible)', price: '+$30.000' },
-      { icon: '❄️', name: 'Winter Escape', desc: 'Temporada baja = precios bajos + nieve en volcanes + cabaña acogedora', price: '-20% tarifa' },
-      { icon: '🎿', name: 'Pack Ski & Stay', desc: 'Traslado a Volcán Osorno o Antillanca, esquís incluidos, termas post-ski', price: '+$90.000' },
-    ],
-    extras: [
-      { i: '🍺', n: 'Cerveza artesanal', p: '+$10.000' },
-      { i: '♨️', n: 'Acceso termas', p: '+$18.000' },
-      { i: '🔭', n: 'Telescopio', p: '+$0' },
-      { i: '🧤', n: 'Kit invierno', p: '+$12.000' },
-      { i: '🥩', n: 'Asado invierno', p: '+$35.000' },
-      { i: '🎿', n: 'Traslado ski', p: '+$40.000' },
-    ],
-    tips: [
-      { i: '❄️', t: 'Reposicionar la temporada baja como "lujo de invierno": tarifas menores pero experiencia premium.' },
-      { i: '📱', t: 'Publicar fotos de la cabaña con niebla y bosque nevado. Son las imágenes que más engagement generan.' },
-      { i: '🎯', t: 'Crear paquete "Ski & Stay" en alianza con centros de esquí de Volcán Osorno y Antillanca.' },
-    ]
-  },
-  {
-    id: 'julio',
-    name: 'Julio',
-    season: 'Invierno',
-    seasonKey: 'invierno',
-    emoji: '🏔️',
-    intensity: 'high',
-    priceRange: '$90.000 – $140.000',
-    subtitle: 'Vacaciones de invierno escolar — una de las temporadas más rentables del año. Familias que buscan el sur con nieve.',
-    bgColor: 'linear-gradient(135deg, #e3f2fd, #b3e5fc)',
-    dates: [
-      { icon: '🎒', name: 'Vacaciones de Invierno', date: 'Julio – 2 semanas', priority: 'alta' },
-      { icon: '🏔️', name: 'Nieve en Volcanes', date: 'Todo julio', priority: 'alta' },
-      { icon: '⛷️', name: 'Temporada Ski', date: 'Jun–Ago', priority: 'alta' },
-    ],
-    packages: [
-      { icon: '👨‍👩‍👧‍👦', name: 'Vacaciones Invierno Familia', desc: '3–5 noches, kit de actividades para niños, fuego de campaña, cocoa nocturna', price: '-10% familias' },
-      { icon: '⛷️', name: 'Ski Week', desc: '5 noches, traslado diario a Antillanca u Osorno, equipo incluido', price: '+$200.000' },
-      { icon: '🌨️', name: 'Snow Adventure', desc: 'Raquetas de nieve, guía de montaña, fondue suizo, vin chaud', price: '+$70.000' },
-      { icon: '🦦', name: 'Naturaleza Invernal', desc: 'Avistamiento de aves invernales, flora nativa nevada, ruta fotográfica', price: '+$35.000' },
-    ],
-    extras: [
-      { i: '🎿', n: 'Clases ski niños', p: '+$35.000' },
-      { i: '🍫', n: 'Fondue familiar', p: '+$28.000' },
-      { i: '🧣', n: 'Kit abrigo niños', p: '+$15.000' },
-      { i: '🍵', n: 'Vin chaud diario', p: '+$8.000' },
-      { i: '📽️', n: 'Cine proyector', p: '+$20.000' },
-      { i: '🧩', n: 'Juegos de mesa', p: '+$0' },
-    ],
-    tips: [
-      { i: '🎒', t: 'En julio tienes demanda garantizada. Aplica mínimo 4 noches y no hagas descuentos — hay más demanda que oferta.' },
-      { i: '📅', t: 'Publicar disponibilidad de julio desde marzo para capturar reservas anticipadas de familias organizadas.' },
-      { i: '🤝', t: 'Negociar tarifas con operadores turísticos de Osorno y Puerto Montt que traen grupos familiares.' },
-    ]
-  },
-  {
-    id: 'agosto',
-    name: 'Agosto',
-    season: 'Invierno',
-    seasonKey: 'invierno',
-    emoji: '🌤️',
-    intensity: 'media',
-    priceRange: '$70.000 – $100.000',
-    subtitle: 'Fin del invierno. Últimas nieves. Asunción de la Virgen. Transición ideal para escapadas tranquilas.',
-    bgColor: 'linear-gradient(135deg, #f3e5f5, #e8eaf6)',
-    dates: [
-      { icon: '⛪', name: 'Asunción de la Virgen', date: '15 ago (feriado)', priority: 'media' },
-      { icon: '🌥️', name: 'Fin Temporada Ski', date: 'Hasta ago', priority: 'media' },
-      { icon: '🌱', name: 'Despertar Primavera', date: 'Fines agosto', priority: 'baja' },
-    ],
-    packages: [
-      { icon: '🌤️', name: 'Entre Estaciones', desc: 'Última nieve + primeros brotes. Ruta fotográfica única, desayuno caliente', price: '+$25.000' },
-      { icon: '🧘', name: 'Retiro Agosto', desc: 'Yoga, meditación, cocina vegetariana del sur, baño de bosque', price: '+$40.000' },
-      { icon: '🏃', name: 'Running & Nature', desc: 'Rutas de trail running en el bosque, nutrición deportiva, masaje post-ruta', price: '+$35.000' },
-      { icon: '🐦', name: 'Avistamiento de Aves', desc: 'Guía ornitólogo, binoculares, cuaderno de registro, madrugada en el bosque', price: '+$45.000' },
-    ],
-    extras: [
-      { i: '🥗', n: 'Menú vegetariano', p: '+$20.000' },
-      { i: '🐦', n: 'Binoculares', p: '+$0' },
-      { i: '🌿', n: 'Infusiones medicinales', p: '+$8.000' },
-      { i: '🧘', n: 'Mat yoga', p: '+$0' },
-      { i: '🧴', n: 'Set aromas', p: '+$12.000' },
-      { i: '🎒', n: 'Mochila trekking', p: '+$10.000' },
-    ],
-    tips: [
-      { i: '🎯', t: 'Target agosto: parejas sin hijos, profesionales que buscan silencio. Precio accesible + experiencia exclusiva.' },
-      { i: '📲', t: 'Instagram: fotos del amanecer en el bosque de agosto son virales. Publicar contenido real, sin filtros.' },
-    ]
-  },
-  {
-    id: 'septiembre',
-    name: 'Septiembre',
-    season: 'Primavera',
-    seasonKey: 'primavera',
-    emoji: '🌸',
-    intensity: 'high',
-    priceRange: '$85.000 – $130.000',
-    subtitle: 'Fiestas Patrias — el feriado más importante en Chile. Combinado con el despertar de la primavera en el bosque nativo.',
-    bgColor: 'linear-gradient(135deg, #e8f5e9, #f9fbe7)',
-    dates: [
-      { icon: '🇨🇱', name: 'Fiestas Patrias', date: '18 y 19 sep', priority: 'alta' },
-      { icon: '🌸', name: 'Inicio Primavera', date: '22 sep', priority: 'media' },
-      { icon: '💪', name: 'Día del Ejército', date: '19 sep', priority: 'baja' },
-    ],
-    packages: [
-      { icon: '🇨🇱', name: 'Fiestas Patrias en el Bosque', desc: 'Asado completo, empanadas artesanales, chicha, cueca en la terraza', price: '+$65.000' },
-      { icon: '🍖', name: 'Pack Asado Sureño', desc: 'Parrilla lista, cordero o vacuno, ensaladas del huerto, marraqueta', price: '+$55.000' },
-      { icon: '🌸', name: 'Primavera Mágica', desc: 'El bosque florece: ruta guiada flora nativa, té de hierbas, fotografía botánica', price: '+$30.000' },
-      { icon: '🎸', name: 'Noche de Cueca', desc: 'Músico en vivo, trajes típicos disponibles, mistela y sopaipillas', price: '+$40.000' },
-    ],
-    extras: [
-      { i: '🥟', n: 'Empanadas artesanales', p: '+$12.000' },
-      { i: '🍺', n: 'Chicha curada', p: '+$8.000' },
-      { i: '🎵', n: 'Música folklórica', p: '+$30.000' },
-      { i: '🌿', n: 'Flores nativas', p: '+$10.000' },
-      { i: '🍖', n: 'Asado completo', p: '+$55.000' },
-      { i: '🇨🇱', n: 'Decoración patria', p: '+$15.000' },
-    ],
-    tips: [
-      { i: '🇨🇱', t: 'Fiestas Patrias es la segunda mayor temporada del año. Aplicar mínimo 3 noches y precio especial desde junio.' },
-      { i: '📱', t: 'Publicar en redes: "Celebra el 18 entre volcanes y bosque nativo" — contenido muy compartido.' },
-      { i: '🎯', t: 'Crear post de Instagram con el bosque en primavera y bandera chilena como escenario — es viral en septiembre.' },
-    ]
-  },
-  {
-    id: 'octubre',
-    name: 'Octubre',
-    season: 'Primavera',
-    seasonKey: 'primavera',
-    emoji: '🌺',
-    intensity: 'media',
-    priceRange: '$75.000 – $110.000',
-    subtitle: 'Día de la Raza (puente). El bosque en plena floración. Ideal para turismo de naturaleza y escapadas de fin de semana.',
-    bgColor: 'linear-gradient(135deg, #f9fbe7, #e8f5e9)',
-    dates: [
-      { icon: '🌎', name: 'Día de la Raza / Encuentro Culturas', date: '12 oct (feriado)', priority: 'media' },
-      { icon: '🌺', name: 'Primavera Plena', date: 'Todo octubre', priority: 'media' },
-      { icon: '🍵', name: 'Día Nacional Gastronomía', date: 'Octubre', priority: 'baja' },
-    ],
-    packages: [
-      { icon: '🌺', name: 'Spring Blooming', desc: 'Ruta de flora nativa del Alerce Andino, fotografía botánica, miel local de la zona', price: '+$35.000' },
-      { icon: '🌿', name: 'Eco Retreat', desc: 'Sin pantallas (opcional), diario de naturaleza, meditación bajo los alerces', price: '+$25.000' },
-      { icon: '🍵', name: 'Ruta Gastro Primavera', desc: 'Tour de productores: queso, cordero, salmón, chocolates del sur', price: '+$55.000' },
-      { icon: '🚴', name: 'Bike & Nature', desc: 'Bicicletas disponibles, ruta ciclista al bosque y lago, picnic incluido', price: '+$30.000' },
-    ],
-    extras: [
-      { i: '🍯', n: 'Miel local', p: '+$10.000' },
-      { i: '🌻', n: 'Kit semillas nativas', p: '+$8.000' },
-      { i: '🚲', n: 'Bicicletas', p: '+$15.000' },
-      { i: '📔', n: 'Diario naturaleza', p: '+$5.000' },
-      { i: '🍃', n: 'Herboristería', p: '+$10.000' },
-      { i: '🧃', n: 'Jugos artesanales', p: '+$8.000' },
-    ],
-    tips: [
-      { i: '🌺', t: 'Octubre es el mes más fotogénico del bosque. Crear contenido UGC: pedir a huéspedes que etiqueten la cabaña.' },
-      { i: '🤝', t: 'Buscar cobertura en blogs de viaje y cuentas de naturaleza de Chile. El bosque en primavera es noticia.' },
-    ]
-  },
-  {
-    id: 'noviembre',
-    name: 'Noviembre',
-    season: 'Primavera',
-    seasonKey: 'primavera',
-    emoji: '🌟',
-    intensity: 'media',
-    priceRange: '$80.000 – $120.000',
-    subtitle: 'Día de Todos los Santos. Puentes de noviembre. Pre-temporada de verano, precios aún accesibles antes del boom de diciembre.',
-    bgColor: 'linear-gradient(135deg, #fff8e1, #f9fbe7)',
-    dates: [
-      { icon: '⛪', name: 'Todos los Santos', date: '1 nov (feriado)', priority: 'media' },
-      { icon: '🕊️', name: 'Día de los Fieles Difuntos', date: '2 nov (feriado)', priority: 'media' },
-      { icon: '🛍️', name: 'Black Friday Turismo', date: 'Última semana nov', priority: 'alta' },
-    ],
-    packages: [
-      { icon: '🛍️', name: 'Black Friday: Reserva Anticipada', desc: '20–30% descuento para reservas de diciembre–enero. Limitado a 5 cabañas', price: '-25%' },
-      { icon: '🌿', name: 'Primavera Plena Weekend', desc: 'Viernes–domingo: 3 noches precio de 2, desayuno incluido', price: '3x2 noches' },
-      { icon: '🧘', name: 'Despedida Año Retiro', desc: 'Reflexión anual: meditación, journaling, sauna si disponible', price: '+$30.000' },
-      { icon: '📸', name: 'Sesión Pre-Verano', desc: 'Fotógrafo local para contenido de redes, tarde de sesión en el bosque', price: '+$55.000' },
-    ],
-    extras: [
-      { i: '🛍️', n: 'Descuento fidelidad', p: '-10%' },
-      { i: '🌅', n: 'Tour amanecer', p: '+$15.000' },
-      { i: '🍋', n: 'Bebidas premium', p: '+$12.000' },
-      { i: '🎁', n: 'Voucher regalo', p: 'Variable' },
-      { i: '🌿', n: 'Aromaterapia', p: '+$12.000' },
-      { i: '📬', n: 'Postal del bosque', p: '+$3.000' },
-    ],
-    tips: [
-      { i: '🛍️', t: 'HACER Black Friday turístico: descuento del 20–25% para reservas anticipadas de enero. Genera caja y ocupa en vacaciones.' },
-      { i: '📧', t: 'Enviar email/WhatsApp a lista de huéspedes anteriores con oferta exclusiva antes de publicarlo en redes.' },
-      { i: '💡', t: 'Crear tarjetas de regalo para navidad: "Regala una noche en el bosque patagónico" — venta cruzada de noviembre a diciembre.' },
-    ]
-  },
-  {
-    id: 'diciembre',
-    name: 'Diciembre',
-    season: 'Verano',
-    seasonKey: 'verano',
-    emoji: '🎄',
-    intensity: 'peak',
-    priceRange: '$110.000 – $200.000',
-    subtitle: 'La Inmaculada, Navidad, Año Nuevo en vista. El mes más especial del año. Decoración navideña del bosque = magia pura.',
-    bgColor: 'linear-gradient(135deg, #e8f5e9, #fce4ec)',
-    dates: [
-      { icon: '✝️', name: 'Inmaculada Concepción', date: '8 dic (feriado)', priority: 'media' },
-      { icon: '🎄', name: 'Navidad', date: '24–25 dic', priority: 'alta' },
-      { icon: '🎆', name: 'Víspera Año Nuevo', date: '31 dic', priority: 'alta' },
-    ],
-    packages: [
-      { icon: '🎄', name: 'Navidad en el Bosque', desc: 'Árbol decorado, cena navideña completa, mesa puesta con velas y pinos', price: '+$90.000' },
-      { icon: '🎆', name: 'Nochevieja Patagónica', desc: 'Champagne, mesa gourmet 5 platos, cuenta regresiva en terraza con volcanes', price: '+$120.000' },
-      { icon: '❤️', name: 'Navidad en Pareja', desc: 'Estancia mínima 3N, decoración especial, champagne, desayuno navideño en cama', price: '+$80.000' },
-      { icon: '👨‍👩‍👧‍👦', name: 'Navidad Familiar', desc: 'Cena completa, árbol con regalos simbólicos, kit niños con actividades del bosque', price: '+$100.000' },
-    ],
-    extras: [
-      { i: '🎄', n: 'Decoración navideña', p: '+$20.000' },
-      { i: '🥂', n: 'Champagne premium', p: '+$30.000' },
-      { i: '🍽️', n: 'Cena gourmet', p: '+$75.000' },
-      { i: '🎁', n: 'Regalos sorpresa', p: '+$25.000' },
-      { i: '📸', n: 'Sesión navideña', p: '+$45.000' },
-      { i: '🎵', n: 'Villancicos en vivo', p: '+$35.000' },
-    ],
-    tips: [
-      { i: '🎄', t: 'Publicar "Navidad en el bosque" desde octubre. Las fotos de cabaña con nieve y decoración navideña viral.' },
-      { i: '💰', t: 'Aplicar mínimo 4 noches en Navidad y 3 en Año Nuevo. Precio máximo: el mercado lo permite plenamente.' },
-      { i: '📦', t: 'Crear paquete "Todo incluido diciembre" con precio fijo que incluya cena navideña + cotillón + champagne. Más simple de vender.' },
-      { i: '📧', t: 'Mandar WhatsApp a clientes repetidores en octubre con acceso preferente a reservas de diciembre. La fidelización genera los mejores precios.' },
-    ]
-  }
+const MESES=[
+{id:'enero',name:'Enero',season:'Verano',key:'verano',emoji:'☀️',dem:'peak',price:'$110.000 – $180.000',
+desc:'Temporada alta máxima. Volcán Calbuco, Lagos y bosque en su esplendor veraniego. La tinaja se convierte en refugio nocturno bajo las estrellas. Vacaciones escolares activan la mayor demanda del año.',
+dates:[
+{i:'🎆',n:'Año Nuevo',f:'1 enero — Feriado irrenunciable',p:'peak'},
+{i:'🏖️',n:'Temporada Alta Verano',f:'Todo enero — Máxima demanda',p:'peak'},
+{i:'🎒',n:'Vacaciones Escolares',f:'Enero y febrero — MINEDUC',p:'alta'},
+],
+pkgs:[
+{i:'🥂',n:'Pack Año Nuevo Bosque',d:'Espumante artesanal, tinaja lista con velas flotantes, mesa decorada, frutos del sur',pr:'+$55.000'},
+{i:'♨️',n:'Tinaja Nocturna Premium',d:'Tinaja preparada a la llegada, velas, música suave, vino del sur, toallas calientes',pr:'+$35.000'},
+{i:'🚣',n:'Lagos & Volcanes',d:'Guía local al Lago Llanquihue y Volcán Calbuco, kayak, almuerzo picnic en el bosque',pr:'+$65.000'},
+{i:'🍳',n:'Desayuno Patagónico',d:'Pan amasado, mermeladas artesanales, queso chanco, huevos, frutas, café de grano',pr:'+$18.000'},
+],
+extras:[{i:'♨️',n:'Tinaja iluminada',p:'+$20.000'},{i:'🍷',n:'Vino del sur',p:'+$14.000'},{i:'🧺',n:'Picnic bosque',p:'+$22.000'},{i:'📷',n:'Sesión fotográfica',p:'+$45.000'},{i:'🪵',n:'Leña extra',p:'+$8.000'},{i:'🎁',n:'Box bienvenida',p:'+$18.000'}],
+tips:[
+{i:'📅',t:'Publicar disponibilidad de Año Nuevo desde septiembre. La demanda en el sur se agota antes que en cualquier otra región de Chile.'},
+{i:'♨️',t:'"Año Nuevo en el bosque, con tinaja bajo las estrellas y el Volcán Calbuco al fondo." Ese copy específico vende sin esfuerzo adicional.'},
+{i:'💰',t:'Aplicar mínimo 3 noches y tarifa no reembolsable con 20% descuento para asegurar reservas anticipadas desde octubre.'},
+]},
+{id:'febrero',name:'Febrero',season:'Verano',key:'verano',emoji:'❤️',dem:'peak',price:'$100.000 – $165.000',
+desc:'Mes de San Valentín y familias en el sur. El río del predio está en su nivel más accesible — ideal para pasear junto a la orilla. Tinaja + río + bosque = la combinación romántica perfecta.',
+dates:[
+{i:'💑',n:'Día de San Valentín',f:'14 febrero — Alta demanda de parejas',p:'peak'},
+{i:'🏖️',n:'Temporada Verano Plena',f:'Todo febrero',p:'alta'},
+{i:'🎒',n:'Vacaciones Escolares',f:'Hasta fines de febrero',p:'alta'},
+],
+pkgs:[
+{i:'❤️',n:'Escapada San Valentín',d:'Pétalos de rosa, velas, champagne, tinaja preparada con flores, cena privada en terraza',pr:'+$75.000'},
+{i:'🌊',n:'Tarde en el Río',d:'Hamaca junto al río del predio, picnic, mate, lectura guiada de flora y fauna nativa',pr:'+$20.000'},
+{i:'💆',n:'Retiro de Pareja',d:'Masaje en cabaña, baño de bosque guiado (shinrin-yoku), tinaja al atardecer, cena privada',pr:'+$90.000'},
+{i:'👨‍👩‍👧',n:'Semana Familiar',d:'7 noches, kayak, senderismo, visita gastronomía local, desayuno incluido',pr:'-15% semana'},
+],
+extras:[{i:'🌹',n:'Arreglo floral',p:'+$18.000'},{i:'🧖',n:'Masaje en cabaña',p:'+$50.000'},{i:'🍓',n:'Frutas del sur',p:'+$12.000'},{i:'🌙',n:'Cena bajo estrellas',p:'+$60.000'},{i:'🎵',n:'Música en vivo',p:'+$35.000'},{i:'📬',n:'Postal bosque',p:'+$5.000'}],
+tips:[
+{i:'💌',t:'Campaña San Valentín desde primera semana de enero. Copy: "La tinaja más romántica del sur, con el río a pasos." Imagen: tinaja nocturna con vapor.'},
+{i:'📦',t:'Crear paquete con nombre único: "Pack Amor Patagónico — $79.990". Incluye tinaja + vino + decoración. Más fácil de vender que ítems separados.'},
+{i:'🎯',t:'Historia destacada de Instagram "Escapadas en Pareja" con fotos de tinaja, río y bosque. Es el contenido que más consultas genera.'},
+]},
+{id:'marzo',name:'Marzo',season:'Otoño',key:'otono',emoji:'🍂',dem:'alta',price:'$78.000 – $118.000',
+desc:'Inicio del otoño austral. Los árboles del bosque nativo cambian de color. El río crece levemente. Turismo más tranquilo, sin las multitudes del verano. Temporada ideal para fotógrafos y teletrabajadores.',
+dates:[
+{i:'🍂',n:'Inicio Otoño Austral',f:'21 de marzo',p:'media'},
+{i:'🌿',n:'Temporada de Naturaleza',f:'Todo marzo — bajo flujo turístico, alta calidad',p:'media'},
+{i:'📅',n:'Planificación Semana Santa',f:'Reservas para abril se activan en marzo',p:'alta'},
+],
+pkgs:[
+{i:'🍂',n:'Otoño Fotográfico',d:'Guía de fotografía de follaje en el bosque y el río, caminata, fondue de queso artesanal',pr:'+$40.000'},
+{i:'📚',n:'Retiro de Desconexión',d:'Sin wifi opcional, cesta de libros, bloc artesanal, infusiones de hierbas del sur, tinaja vespertina',pr:'+$22.000'},
+{i:'🍄',n:'Ruta Gastronómica Sur',d:'Visita a productores: queso, salmón ahumado, mermeladas y chocolates de Puerto Varas',pr:'+$55.000'},
+{i:'🌊',n:'Mañana en el Río',d:'Pesca recreativa, flora nativa del predio, desayuno patagónico post-pesca junto a la orilla',pr:'+$30.000'},
+],
+extras:[{i:'☕',n:'Set infusiones',p:'+$8.000'},{i:'🧀',n:'Tabla artesanal',p:'+$22.000'},{i:'📖',n:'Kit libros',p:'+$12.000'},{i:'♨️',n:'Tinaja otoñal',p:'+$20.000'},{i:'🪵',n:'Leña fogón',p:'+$8.000'},{i:'🫖',n:'Tetera especial',p:'+$10.000'}],
+tips:[
+{i:'📸',t:'El bosque en otoño y el río entre hojas caídas: fotos únicas. Publicar en Instagram y Pinterest con hashtags de naturaleza del sur — alto alcance orgánico.'},
+{i:'🎯',t:'Target: teletrabajadores, creativos y escritores de Santiago. Crear paquete "Semana Remota en el Bosque" con precio de lunes a viernes.'},
+{i:'📣',t:'Pedir reviews a huéspedes de verano en marzo. El mejor momento: cuando ya llegaron a casa y el recuerdo es positivo.'},
+]},
+{id:'abril',name:'Abril',season:'Otoño',key:'otono',emoji:'✝️',dem:'peak',price:'$90.000 – $145.000',
+desc:'Semana Santa 2026: Viernes Santo 3 de abril y Sábado Santo 4 de abril (ambos feriados legales). El fin de semana largo más importante del primer semestre. El bosque en colores otoñales máximos.',
+dates:[
+{i:'✝️',n:'Viernes Santo',f:'3 de abril — Feriado legal',p:'peak'},
+{i:'✝️',n:'Sábado Santo',f:'4 de abril — Feriado legal',p:'peak'},
+{i:'🌿',n:'Semana de Turismo',f:'3 – 6 de abril — Fin de semana largo',p:'peak'},
+{i:'🍂',n:'Otoño pleno en el bosque',f:'Todo abril',p:'alta'},
+],
+pkgs:[
+{i:'✝️',n:'Escape Semana Santa',d:'Mín. 3 noches, fogón de bienvenida junto al río, tinaja preparada, box con productos locales del sur',pr:'Mín. 3 noches'},
+{i:'🌿',n:'Trekking Alerce Andino',d:'Senderismo guiado en el Parque Nacional a 13 km, almuerzo en bosque centenario de alerces',pr:'+$65.000'},
+{i:'🎣',n:'Pesca en el Río',d:'Equipo completo, guía fluvial local, cocinado del resultado en la cabaña con vista al bosque',pr:'+$60.000'},
+{i:'🧘',n:'Retiro Yoga en el Bosque',d:'Mat, clases al amanecer en la terraza frente al bosque, meditación junto al río del predio',pr:'+$40.000'},
+],
+extras:[{i:'🐟',n:'Salmón local fresco',p:'+$25.000'},{i:'🍷',n:'Vino reserva',p:'+$18.000'},{i:'🧺',n:'Canasta Semana Santa',p:'+$28.000'},{i:'♨️',n:'Tinaja otoñal',p:'+$20.000'},{i:'🌿',n:'Aceites esenciales',p:'+$12.000'},{i:'🗺️',n:'Mapa rutas locales',p:'Gratis'}],
+tips:[
+{i:'📅',t:'Mínimo 3 noches en Semana Santa desde enero. Los viajeros del sur lo entienden y aceptan sin problema.'},
+{i:'🌐',t:'Semana Santa atrae turistas argentinos. Publicar con precios en ARS y mencionar la cercanía a paso fronterizo Cardenal Samoré.'},
+{i:'♨️',t:'La tinaja de noche otoñal con el bosque al fondo es irresistible. Incluir esa imagen en toda comunicación de Semana Santa.'},
+]},
+{id:'mayo',name:'Mayo',season:'Otoño',key:'otono',emoji:'👩',dem:'alta',price:'$68.000 – $102.000',
+desc:'Dos feriados clave: Día del Trabajador el 1 de mayo (irrenunciable) y Glorias Navales el 21 de mayo. Día de la Madre el segundo domingo — alta demanda emocional y rentable.',
+dates:[
+{i:'💪',n:'Día del Trabajador',f:'1 de mayo — Feriado irrenunciable',p:'alta'},
+{i:'👩',n:'Día de la Madre',f:'10 de mayo — Segundo domingo de mayo 2026',p:'peak'},
+{i:'🕯️',n:'Combate Naval de Iquique',f:'21 de mayo — Feriado legal',p:'alta'},
+],
+pkgs:[
+{i:'👩',n:'Fuga con Mamá',d:'Desayuno en cama, tinaja con pétalos de lavanda, masaje de manos, carta personalizada, late checkout 14h',pr:'+$70.000'},
+{i:'🌺',n:'Spa en el Bosque para Mamá',d:'Facial con productos naturales, masaje de pies, aromaterapia, infusiones herbales, tinaja privada',pr:'+$55.000'},
+{i:'📷',n:'Sesión Foto Familiar',d:'Fotógrafo local en el bosque y el río, 30 fotos editadas entregadas digitalmente',pr:'+$65.000'},
+{i:'🥘',n:'Cena Familiar del Sur',d:'Cazuela de vacuno o cordero, ensaladas del huerto, postre artesanal, mesa puesta junto al bosque',pr:'+$55.000'},
+],
+extras:[{i:'💐',n:'Flores del sur',p:'+$15.000'},{i:'🎂',n:'Torta artesanal',p:'+$25.000'},{i:'🧴',n:'Set spa',p:'+$20.000'},{i:'🍫',n:'Chocolates finos',p:'+$14.000'},{i:'♨️',n:'Tinaja nocturna',p:'+$20.000'},{i:'🐾',n:'Bienvenida mascotas',p:'+$10.000'}],
+tips:[
+{i:'📲',t:'"El mejor regalo para mamá: escapar al bosque con tinaja y el sonido del río." Publicar en Instagram la última semana de abril. Imagen: tinaja al atardecer.'},
+{i:'🎁',t:'Crear voucher digital de regalo para el Día de la Madre. Hijos compran, mamá elige la fecha — simple, flexible y muy fácil de vender por Instagram DM o WhatsApp.'},
+{i:'💡',t:'21 de mayo es feriado puente frecuente con el fin de semana siguiente. Activar tarifa "3 noches pagas 2" para el puente largo.'},
+]},
+{id:'junio',name:'Junio',season:'Invierno',key:'invierno',emoji:'❄️',dem:'alta',price:'$70.000 – $100.000',
+desc:'Día del Padre el tercer domingo. San Pedro y San Pablo el 29 de junio (feriado legal, lunes → fin de semana largo). Inicio del invierno: el vapor de la tinaja entre el bosque neblinoso es el contenido más viral del año.',
+dates:[
+{i:'👨',n:'Día del Padre',f:'21 de junio — Tercer domingo de junio 2026',p:'peak'},
+{i:'⛄',n:'Solsticio de Invierno',f:'21 de junio',p:'media'},
+{i:'🕯️',n:'San Pedro y San Pablo',f:'29 de junio — Feriado legal (lunes → fin de semana largo)',p:'alta'},
+],
+pkgs:[
+{i:'👨',n:'Fuga del Padre',d:'Senderismo, pesca en el río del predio, fogón nocturno con costillar, cervezas artesanales locales',pr:'+$60.000'},
+{i:'⛄',n:'Noche Solsticio Bosque',d:'Fogata de solsticio junto al río, chocolate caliente, telescopio disponible, tinaja de medianoche',pr:'+$30.000'},
+{i:'❄️',n:'Winter Escape',d:'3 noches temporada baja con precio reducido + tinaja de invierno con leña ilimitada',pr:'-20% tarifa'},
+{i:'🎿',n:'Pack Ski & Tinaja',d:'Traslado a Volcán Antillanca u Osorno, regreso al bosque, tinaja caliente post-nieve incluida',pr:'+$95.000'},
+],
+extras:[{i:'🍺',n:'Cerveza artesanal',p:'+$10.000'},{i:'♨️',n:'Tinaja con niebla',p:'+$20.000'},{i:'🔭',n:'Telescopio',p:'Gratis'},{i:'🥩',n:'Costillar al fuego',p:'+$40.000'},{i:'🎿',n:'Traslado ski',p:'+$45.000'},{i:'🧤',n:'Kit abrigo',p:'+$12.000'}],
+tips:[
+{i:'❄️',t:'Reposicionar junio como "lujo de invierno": misma cabaña, menos gente, más íntimo, tinaja con vapor entre árboles neblinosos. La experiencia es diferente pero igual de poderosa.'},
+{i:'📱',t:'Video de 15 segundos: tinaja humeando en invierno, bosque al fondo, sonido del río. Ese contenido tiene el mejor engagement del año en redes.'},
+{i:'🎿',t:'Crear paquete "Ski & Tinaja" con Antillanca u Osorno — bajás del ski y entrás a la tinaja caliente. Experiencia única que ningún hotel de ski puede ofrecer.'},
+]},
+{id:'julio',name:'Julio',season:'Invierno',key:'invierno',emoji:'🏔️',dem:'peak',price:'$95.000 – $148.000',
+desc:'Vacaciones de invierno escolar — dos semanas de alta demanda garantizada según calendario MINEDUC 2026. Familias con niños que buscan nieve en volcanes + calidez del bosque. Segunda temporada más importante del año.',
+dates:[
+{i:'🎒',n:'Vacaciones Invierno Escolar',f:'Julio — 2 semanas oficiales MINEDUC',p:'peak'},
+{i:'🏔️',n:'Nieve en Volcanes Cercanos',f:'Todo julio — Calbuco, Osorno, Antillanca',p:'peak'},
+{i:'⛷️',n:'Peak Temporada Ski',f:'Julio – agosto',p:'alta'},
+],
+pkgs:[
+{i:'👨‍👩‍👧‍👦',n:'Vacaciones Invierno Familia',d:'3–5 noches, actividades para niños en el bosque y el río, cocoa nocturna junto al fogón, tinaja familiar',pr:'-10% familias'},
+{i:'⛷️',n:'Ski Week',d:'5 noches, traslado diario a Antillanca o Volcán Osorno, equipo para 2 personas incluido',pr:'+$200.000'},
+{i:'🌨️',n:'Snow & Tinaja',d:'Raquetas de nieve, guía de montaña, fondue suizo, vin chaud al regreso, tinaja con vista',pr:'+$80.000'},
+{i:'🦉',n:'Naturaleza Invernal',d:'Avistamiento de aves invernales, flora nevada del bosque, ruta fotográfica junto al río',pr:'+$40.000'},
+],
+extras:[{i:'🎿',n:'Clases ski niños',p:'+$35.000'},{i:'🍫',n:'Fondue familiar',p:'+$30.000'},{i:'♨️',n:'Tinaja familiar',p:'+$25.000'},{i:'🍵',n:'Vin chaud diario',p:'+$8.000'},{i:'📽️',n:'Proyector cine',p:'+$20.000'},{i:'🧩',n:'Juegos de mesa',p:'Gratis'}],
+tips:[
+{i:'🎒',t:'Julio es temporada garantizada. Mínimo 4 noches, sin descuentos. La tinaja y el río hacen el trabajo de venta solos — solo necesitas mostrarlos bien.'},
+{i:'📅',t:'Publicar disponibilidad de julio desde marzo. Las familias organizadas reservan con 4–5 meses de anticipación para asegurar el mejor alojamiento.'},
+{i:'🤝',t:'Alianza con operadores turísticos de Osorno y Puerto Montt que traen grupos familiares. Comisión 10–12% vale para mantener ocupación 100%.'},
+]},
+{id:'agosto',name:'Agosto',season:'Invierno',key:'invierno',emoji:'🌤️',dem:'media',price:'$70.000 – $104.000',
+desc:'Asunción de la Virgen el 15 de agosto (feriado legal). El río del predio alcanza su mayor caudal del año — sonido poderoso y constante. Fin del invierno: últimas nieves + primeros brotes.',
+dates:[
+{i:'⛪',n:'Asunción de la Virgen',f:'15 de agosto — Feriado legal (sábado en 2026)',p:'media'},
+{i:'🌊',n:'Río en Caudal Máximo',f:'Agosto — mayor nivel de agua del año',p:'media'},
+{i:'🌤️',n:'Últimas Nieves en Volcanes',f:'Agosto — cierre temporada ski',p:'media'},
+],
+pkgs:[
+{i:'🌤️',n:'Entre Estaciones',d:'Últimas nieves + primeros brotes. Fotografía de transición única, tinaja al atardecer, desayuno caliente',pr:'+$25.000'},
+{i:'🧘',n:'Retiro Agosto',d:'Yoga junto al río (caudal máximo), meditación, cocina vegetariana del sur, tinaja vespertina',pr:'+$45.000'},
+{i:'🏃',n:'Trail Running Bosque',d:'Rutas de trail entre los árboles nativos, nutrición deportiva, masaje post-ruta, tinaja de recuperación',pr:'+$42.000'},
+{i:'🦆',n:'Avistamiento de Aves',d:'Guía ornitólogo junto al río, binoculares, cuaderno de registro, madrugada en el bosque',pr:'+$50.000'},
+],
+extras:[{i:'🥗',n:'Menú vegetariano',p:'+$22.000'},{i:'🐦',n:'Binoculares',p:'Gratis'},{i:'🌿',n:'Infusiones medicinales',p:'+$8.000'},{i:'♨️',n:'Tinaja vista volcán',p:'+$20.000'},{i:'🧘',n:'Mat yoga',p:'Gratis'},{i:'🎒',n:'Mochila trekking',p:'+$10.000'}],
+tips:[
+{i:'🎯',t:'Target agosto: parejas sin hijos, runners, fotógrafos. Precio accesible + experiencia sofisticada = alta satisfacción y reviews excelentes.'},
+{i:'📲',t:'Publicar video del río a máximo caudal en agosto — el sonido del agua patagónica es hipnótico y genera engagement muy alto.'},
+{i:'🌐',t:'Agosto es ideal para captar reservas de septiembre (Fiestas Patrias). Ofrecer early bird 10% en el mismo canal de comunicación.'},
+]},
+{id:'septiembre',name:'Septiembre',season:'Primavera',key:'primavera',emoji:'🇨🇱',dem:'peak',price:'$95.000 – $148.000',
+desc:'Fiestas Patrias 2026: viernes 18 y sábado 19 de septiembre, ambos feriados irrenunciables. Fin de semana largo de tres días de celebración oficial. El bosque empieza la primavera al mismo tiempo.',
+dates:[
+{i:'🇨🇱',n:'Fiestas Patrias',f:'18 de septiembre — Feriado irrenunciable (viernes)',p:'peak'},
+{i:'💪',n:'Día de las Glorias del Ejército',f:'19 de septiembre — Feriado irrenunciable (sábado)',p:'peak'},
+{i:'🌸',n:'Inicio Primavera Austral',f:'22 de septiembre',p:'media'},
+],
+pkgs:[
+{i:'🇨🇱',n:'18 en el Bosque',d:'Asado completo, empanadas artesanales, chicha, cueca en terraza, tinaja nocturna con el Volcán Calbuco al fondo',pr:'+$70.000'},
+{i:'🍖',n:'Pack Asado Sureño',d:'Parrilla lista, cordero o vacuno, ensaladas del huerto, marraqueta, mote con huesillos',pr:'+$60.000'},
+{i:'🌸',n:'Primavera Patagónica',d:'El bosque florece — ruta guiada de flora nativa, herboristería junto al río, fotografía botánica',pr:'+$35.000'},
+{i:'♨️',n:'Tinaja Patria',d:'Tinaja con decoración chilena, vino tinto del sur, fogón nocturno, vista Volcán Calbuco',pr:'+$40.000'},
+],
+extras:[{i:'🥟',n:'Empanadas artesanales',p:'+$12.000'},{i:'🍺',n:'Chicha curada',p:'+$8.000'},{i:'🎵',n:'Música folklórica',p:'+$35.000'},{i:'🇨🇱',n:'Decoración patria',p:'+$15.000'},{i:'🍖',n:'Asado completo',p:'+$60.000'},{i:'♨️',n:'Tinaja + vino',p:'+$30.000'}],
+tips:[
+{i:'🇨🇱',t:'El 18 cae viernes en 2026 → fin de semana largo de jueves a domingo para muchos. Activar comunicación en agosto con mínimo 3 noches y tarifa máxima.'},
+{i:'📱',t:'"Celebra el 18 entre volcanes, bosque nativo y tinaja en el sur de Chile." Con foto nocturna de la tinaja y el volcán: se comparte masivamente.'},
+{i:'🤝',t:'Coordinar con operadores de tours de Puerto Varas para recibir grupos que llegan al sur en el 18. Comisión del 12% por referido.'},
+]},
+{id:'octubre',name:'Octubre',season:'Primavera',key:'primavera',emoji:'🌺',dem:'media',price:'$78.000 – $115.000',
+desc:'Encuentro de Dos Mundos el 12 de octubre (feriado legal, lunes → fin de semana largo del 10–12). El bosque en floración máxima. Primavera austral en su punto más fotogénico.',
+dates:[
+{i:'🌎',n:'Encuentro de Dos Mundos',f:'12 de octubre — Feriado legal (lunes → fin de semana largo)',p:'alta'},
+{i:'🌺',n:'Floración del Bosque Nativo',f:'Todo octubre',p:'alta'},
+{i:'🌊',n:'Río en Primavera',f:'Nivel moderado y accesible',p:'media'},
+],
+pkgs:[
+{i:'🌺',n:'Spring Blooming',d:'Ruta de flora nativa del Alerce Andino, fotografía botánica junto al río, miel local de la zona',pr:'+$38.000'},
+{i:'🌿',n:'Eco Retreat Digital Detox',d:'Sin pantallas (opcional), diario de naturaleza junto al río, meditación bajo los alerces',pr:'+$28.000'},
+{i:'🍵',n:'Ruta Gastro Primavera',d:'Tour a productores: queso, cordero, salmón, chocolates y mermeladas artesanales del sur',pr:'+$58.000'},
+{i:'🚴',n:'Bike & River',d:'Bicicletas por el predio y el río, picnic junto a la orilla, guía de flora riparia',pr:'+$32.000'},
+],
+extras:[{i:'🍯',n:'Miel local',p:'+$10.000'},{i:'🌻',n:'Kit semillas nativas',p:'+$8.000'},{i:'🚲',n:'Bicicletas',p:'+$18.000'},{i:'♨️',n:'Tinaja primaveral',p:'+$20.000'},{i:'📔',n:'Diario naturaleza',p:'+$6.000'},{i:'🧃',n:'Jugos artesanales',p:'+$8.000'}],
+tips:[
+{i:'🌺',t:'El bosque en floración más el río de primavera = el contenido más fotogénico del año. Pedir a huéspedes que etiqueten la cabaña — UGC gratuito de alta calidad.'},
+{i:'📅',t:'Feriado 12 de octubre cae lunes en 2026 → fin de semana largo de sábado 10 a lunes 12. Activar comunicación desde septiembre.'},
+{i:'🤝',t:'Contactar bloggers de naturaleza y viaje del sur de Chile. El bosque en primavera + el río es noticia y les interesa publicar.'},
+]},
+{id:'noviembre',name:'Noviembre',season:'Primavera',key:'primavera',emoji:'🌟',dem:'media',price:'$82.000 – $125.000',
+desc:'Todos los Santos el 1 de noviembre y Fieles Difuntos el 2 (feriado legal, lunes → fin de semana largo). Black Friday turístico a fines de mes: el momento ideal para vender reservas anticipadas de verano.',
+dates:[
+{i:'⛪',n:'Día de Todos los Santos',f:'1 de noviembre — Feriado legal',p:'media'},
+{i:'🕊️',n:'Día de los Fieles Difuntos',f:'2 de noviembre — Feriado legal (lunes → fin de semana largo)',p:'alta'},
+{i:'🛍️',n:'Black Friday Turístico',f:'Última semana de noviembre',p:'alta'},
+],
+pkgs:[
+{i:'🛍️',n:'Black Friday: Reserva Anticipada',d:'25% descuento para reservas de diciembre–enero. Limitado a primeras 8 reservas disponibles',pr:'-25% temporada'},
+{i:'🌿',n:'Weekend Primavera 3×2',d:'Viernes–domingo: 3 noches al precio de 2, desayuno patagónico incluido',pr:'3 noches × 2'},
+{i:'🧘',n:'Retiro Fin de Año',d:'Reflexión anual, meditación junto al río, journaling, tinaja nocturna de cierre de año',pr:'+$32.000'},
+{i:'🎁',n:'Tarjeta Regalo Navidad',d:'Voucher digital para regalar una noche en el bosque. El receptor elige la fecha disponible',pr:'Valor libre'},
+],
+extras:[{i:'🛍️',n:'Descuento fidelidad',p:'-10%'},{i:'🌅',n:'Tour amanecer río',p:'+$15.000'},{i:'♨️',n:'Tinaja primavera',p:'+$20.000'},{i:'🎁',n:'Voucher regalo',p:'Variable'},{i:'🌿',n:'Aromaterapia',p:'+$12.000'},{i:'📬',n:'Postal del bosque',p:'+$4.000'}],
+tips:[
+{i:'🛍️',t:'Black Friday turístico: 25% descuento solo 48 horas para reservas de enero. Genera caja anticipada y llena la temporada alta sin esfuerzo.'},
+{i:'📧',t:'Enviar primero a lista propia de WhatsApp/email con acceso exclusivo 24h antes de publicar en redes. La exclusividad fideliza y convierte.'},
+{i:'🎁',t:'"Regala una noche en el bosque con tinaja y río" — tarjeta de regalo digital para Navidad. Se vende en noviembre y se usa en enero–abril. Caja anticipada.'},
+]},
+{id:'diciembre',name:'Diciembre',season:'Verano',key:'verano',emoji:'🎄',dem:'peak',price:'$120.000 – $210.000',
+desc:'Inmaculada Concepción el 8 (feriado). Navidad el 25 (feriado irrenunciable, cae viernes → fin de semana largo hasta lunes 28). El bosque en verano con decoración navideña = la experiencia más solicitada del año.',
+dates:[
+{i:'✝️',n:'Inmaculada Concepción',f:'8 de diciembre — Feriado legal (martes en 2026)',p:'alta'},
+{i:'🎄',n:'Navidad',f:'25 de diciembre — Feriado irrenunciable (viernes → fin de semana largo)',p:'peak'},
+{i:'🎆',n:'Víspera Año Nuevo',f:'31 de diciembre — Alta demanda',p:'peak'},
+],
+pkgs:[
+{i:'🎄',n:'Navidad en el Bosque',d:'Árbol decorado, cena navideña completa, mesa con velas, tinaja especial con pétalos y vino del sur',pr:'+$100.000'},
+{i:'🎆',n:'Nochevieja Patagónica',d:'Champagne, menú gourmet 5 tiempos, cuenta regresiva en terraza con vista Volcán Calbuco',pr:'+$130.000'},
+{i:'❤️',n:'Navidad en Pareja',d:'Mín. 3N, decoración especial, champagne, desayuno navideño en cama, tinaja romántica junto al bosque',pr:'+$90.000'},
+{i:'👨‍👩‍👧‍👦',n:'Navidad Familiar',d:'Cena completa, árbol con regalos simbólicos, kit niños con actividades de bosque y río',pr:'+$110.000'},
+],
+extras:[{i:'🎄',n:'Decoración navideña',p:'+$22.000'},{i:'🥂',n:'Champagne premium',p:'+$35.000'},{i:'🍽️',n:'Cena gourmet',p:'+$85.000'},{i:'♨️',n:'Tinaja navideña',p:'+$30.000'},{i:'📸',n:'Sesión navideña',p:'+$50.000'},{i:'🎵',n:'Música en vivo',p:'+$40.000'}],
+tips:[
+{i:'🎄',t:'Publicar "Navidad en el bosque patagónico con tinaja y el río" desde octubre. El Navidad cae viernes → hay demanda de jueves a lunes.'},
+{i:'💰',t:'Mínimo 4 noches en Navidad y 3 en Año Nuevo. Precio máximo del año — el mercado lo tolera plenamente en diciembre.'},
+{i:'📦',t:'"Todo diciembre incluido": estadía + cena navideña + champagne + tinaja decorada. Un precio único, mejor margen y más fácil de vender.'},
+{i:'📧',t:'Mandar WhatsApp a clientes repetidores en octubre con acceso preferente. La fidelización en diciembre entrega el ingreso más alto del año.'},
+]},
 ];
 
-const GROWTH_STRATEGIES = [
-  { num: '01', title: 'Presencia Digital Profesional', desc: 'Crear perfil de Instagram específico para la cabaña con fotografía profesional, Reels del bosque y Stories semanales. La primera impresión digital vale más que cualquier descuento.', tag: 'Marketing Digital' },
-  { num: '02', title: 'Sistema de Tarjetas de Regalo', desc: 'Vender vouchers digitales en cualquier monto. Ideal para Navidad, Día de la Madre y San Valentín. No requiere inversión y genera ingresos anticipados.', tag: 'Revenue Adicional' },
-  { num: '03', title: 'Programa de Fidelización', desc: 'A la 3ª estadía: noche gratis o upgrade de experiencia. Los huéspedes repetidores pagan más, se quejan menos y traen referidos. ROI altísimo.', tag: 'Retención' },
-  { num: '04', title: 'Alianzas con Operadores', desc: 'Negociar comisión del 10–15% con agencias de turismo de aventura, ski y turismo gastronómico de Puerto Varas y Puerto Montt. Ellos llevan clientes; tú ganas sin esfuerzo.', tag: 'Distribución' },
-  { num: '05', title: 'Revenue Management Dinámico', desc: 'Subir precios automáticamente cuando la ocupación regional sube. Usar Pricelabs o herramienta similar integrada a Booking/Airbnb. Puede aumentar ingresos un 25–35%.', tag: 'Pricing' },
-  { num: '06', title: 'Contenido UGC y Reviews', desc: 'Pedir activamente fotos y reviews después de cada estadía. Un 5★ de 10 en Booking es el activo más valioso. Cada reseña adicional aumenta el ranking y las reservas.', tag: 'Reputación' },
-  { num: '07', title: 'Paquetización de Experiencias', desc: 'Crear 3–4 paquetes anuales nombrados y con precio fijo. La comparación de "paquete vs sin paquete" genera upsell natural. Ejemplo: "Pack Romántico Bosque — $189.990"', tag: 'Upsell' },
-  { num: '08', title: 'Canal Directo con WhatsApp Business', desc: 'Crear catálogo en WhatsApp Business con fotos, precios y paquetes. Cobrar reservas por transferencia directa ahorra comisión de plataformas (15–18%). En 1 año puede valer millones.', tag: 'Canal Directo' },
-  { num: '09', title: 'SEO en Google Vacation Rentals', desc: 'Publicar en Google Vacation Rentals (gratuito). Aparece en búsquedas de Google Maps y Search cuando alguien busca "cabaña Puerto Varas". Sin comisión.', tag: 'Gratuito' },
-  { num: '10', title: 'Email Marketing Lista Propia', desc: 'Construir lista de emails de huéspedes anteriores. Enviar newsletter mensual con disponibilidad y ofertas. CTR altísimo vs redes sociales. Costo: casi cero.', tag: 'Bajo Costo' },
-  { num: '11', title: 'Temporada Baja como Nicho Premium', desc: 'Reposicionar mayo–agosto como "retiro de invierno" para teletrabajadores y creativos. Ofrecer semanas completas con 20% descuento. Ocupación constante = más ingresos que precio alto sin ocupación.', tag: 'Temporada Baja' },
-  { num: '12', title: 'Turismo Corporativo y Teambuilding', desc: 'Ofrecer la cabaña para retiros de equipos pequeños (4–8 personas). Empresas tienen presupuesto de bienestar. Un retiro corporativo = 3–5 noches + extras a precio premium.', tag: 'B2B' },
+const ESTRAT=[
+{n:'01',t:'Instagram Profesional de la Cabaña',d:'Contenido semanal mostrando la tinaja, el río y el bosque en cada estación. Los Reels nocturnos de tinaja con vapor son el contenido con mayor alcance orgánico para alojamientos del sur de Chile.',tag:'Marketing Digital'},
+{n:'02',t:'La Tinaja como Titular de Ventas',d:'La tinaja privada + el río en el predio es la combinación más poderosa. Toda comunicación debe comenzar con ello. Es el diferencial que ninguna cadena hotelera puede replicar.',tag:'Posicionamiento'},
+{n:'03',t:'Tarjetas de Regalo Digitales',d:'Vouchers en cualquier valor, ideales para Día de la Madre, San Valentín y Navidad. Genera ingresos anticipados y amplía el canal de adquisición sin ninguna inversión.',tag:'Revenue Adicional'},
+{n:'04',t:'WhatsApp Business con Catálogo',d:'Canal directo con fotos, precios y paquetes. Reserva por transferencia = ahorro de 15–18% de comisión de plataformas. En 1 año puede representar 2–3 millones adicionales.',tag:'Canal Directo'},
+{n:'05',t:'Revenue Management Dinámico',d:'Subir precios automáticamente cuando la ocupación regional sube. Herramientas como Pricelabs integradas a Booking/Airbnb pueden aumentar ingresos un 25–35% sin esfuerzo manual.',tag:'Pricing Inteligente'},
+{n:'06',t:'Programa de Fidelización',d:'A la 3ª estadía: noche gratis o experiencia premium (tinaja + cena). Huéspedes repetidores pagan más, se quejan menos y traen referidos. El canal con mejor ROI del negocio.',tag:'Retención'},
+{n:'07',t:'Alianzas con Operadores Locales',d:'Comisión del 10–15% a guías de aventura, ski, turismo gastronómico y operadores de Puerto Varas. Ellos llevan clientes; tú solo recibes y cobras.',tag:'Distribución'},
+{n:'08',t:'Paquetes con Nombre y Precio Fijo',d:'Crear 4–5 paquetes anuales con nombre atractivo y precio único. La comparación "paquete vs sin paquete" genera upsell natural. Ejemplo: "Pack Patagónico de Invierno — $189.990".',tag:'Upsell'},
+{n:'09',t:'Google Vacation Rentals (Gratuito)',d:'Publicar en Google Vacation Rentals sin comisión. Aparece en Google Maps y Search cuando alguien busca "cabaña Puerto Varas". Canal de alta conversión y sin costo.',tag:'Sin Costo'},
+{n:'10',t:'Email y WhatsApp Lista Propia',d:'Base de contactos de huéspedes anteriores. Newsletter mensual con disponibilidad especial. CTR altísimo vs redes sociales. Costo: casi cero. Valor: el más alto del negocio.',tag:'Bajo Costo'},
+{n:'11',t:'Temporada Baja = Retiro Premium',d:'Reposicionar mayo–agosto como "retiro de invierno con tinaja" para teletrabajadores y creativos. Semanas completas con 20% descuento mantienen flujo de caja constante.',tag:'Temporada Baja'},
+{n:'12',t:'Turismo Corporativo Wellbeing',d:'Ofrecer la cabaña para retiros de equipos pequeños. Empresas tienen presupuesto de bienestar. Un retiro corporativo = 4–6 noches + extras a precio premium. Casi sin competencia.',tag:'B2B'},
 ];
 
-function buildMonthCards() {
-  const grid = document.getElementById('monthsGrid');
-  MONTHS_DATA.forEach(m => {
-    const card = document.createElement('div');
-    card.className = 'month-card fade-in';
-    card.dataset.season = m.seasonKey;
-    card.dataset.intensity = m.intensity;
-    const intensityMap = { peak: '🔥', high: '⬆️', media: '➡️', baja: '⬇️' };
-    const chipClass = m.intensity === 'peak' ? 'peak' : m.intensity === 'high' ? 'high' : '';
-    card.innerHTML = `
-      <div class="month-header">
-        <div>
-          <div class="month-name">${m.emoji} ${m.name}</div>
-          <div class="month-season">${m.season}</div>
-        </div>
-        <div class="month-intensity">${intensityMap[m.intensity]}</div>
-      </div>
-      <div class="dates-list">
-        ${m.dates.slice(0,3).map(d => `<span class="date-chip ${d.priority === 'alta' ? 'peak' : d.priority === 'media' ? 'high' : ''}">${d.icon} ${d.name}</span>`).join('')}
-      </div>
-      <div class="month-footer">
-        <div class="price-tag">${m.priceRange} <span>/ noche</span></div>
-        <button class="view-btn" onclick="openModal('${m.id}')">Ver plan →</button>
-      </div>
-    `;
-    grid.appendChild(card);
+function buildMeses(){
+  const g=document.getElementById('mGrid');
+  MESES.forEach(m=>{
+    const d=document.createElement('div');
+    d.className='mc';d.dataset.s=m.key;d.dataset.d=m.dem;
+    const bm={peak:'🔥',alta:'⬆️',media:'➡️'};
+    d.innerHTML=`<div class="mc-h"><div><div class="mc-month">${m.name}</div><div class="mc-season">${m.season}</div></div><div class="mc-badge">${bm[m.dem]}</div></div>
+    <div class="mc-chips">${m.dates.map(dd=>`<span class="chip ${dd.p}">${dd.i} ${dd.n}</span>`).join('')}</div>
+    <div class="mc-foot"><div class="mc-price">${m.price} <small>/ noche</small></div><span class="mc-open">Ver plan →</span></div>`;
+    d.addEventListener('click',()=>abrirModal(m.id));
+    g.appendChild(d);
   });
 }
 
-function buildGrowthCards() {
-  const grid = document.getElementById('growthGrid');
-  GROWTH_STRATEGIES.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'growth-card';
-    card.innerHTML = `
-      <div class="growth-num">${s.num}</div>
-      <div class="growth-card-title">${s.title}</div>
-      <div class="growth-card-desc">${s.desc}</div>
-      <span class="growth-tag">${s.tag}</span>
-    `;
-    grid.appendChild(card);
+function buildEst(){
+  const g=document.getElementById('gGrid');
+  ESTRAT.forEach(e=>{
+    const d=document.createElement('div');d.className='gc';
+    d.innerHTML=`<div class="gc-n">${e.n}</div><div class="gc-t">${e.t}</div><div class="gc-d">${e.d}</div><span class="gc-tag">${e.tag}</span>`;
+    g.appendChild(d);
   });
 }
 
-function filterMonths(filter) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
+function buildAmen(){
+  const items=[['♨️','Tinaja Privada'],['🌲','Bosque Nativo'],['🌊','Río en el Predio'],['🏔️','Volcán Calbuco'],['🎒','Trekking Alerce Andino'],['⭐','Nota 10 Booking'],['🛏️','Cabaña Completa'],['🍳','Cocina Equipada'],['🌿','Flora Nativa'],['🐦','Avistamiento Aves'],['🎿','Ski Cercano'],['📍','Puerto Varas'],['♨️','Tinaja Privada'],['🌲','Bosque Nativo'],['🌊','Río en el Predio'],['🏔️','Volcán Calbuco'],['🎒','Trekking Alerce Andino'],['⭐','Nota 10 Booking']];
+  const t=document.getElementById('amenTrack');
+  [...items,...items].forEach(([ic,lb])=>{const d=document.createElement('div');d.className='amen-item';d.innerHTML=`<span class="ai">${ic}</span>${lb}`;t.appendChild(d);});
+}
 
-  document.querySelectorAll('.month-card').forEach(card => {
-    if (filter === 'all') { card.classList.remove('hidden'); return; }
-    if (filter === 'alta') {
-      card.classList.toggle('hidden', card.dataset.intensity !== 'peak' && card.dataset.intensity !== 'high');
-    } else {
-      card.classList.toggle('hidden', card.dataset.season !== filter);
-    }
+function filtrar(f,btn){
+  document.querySelectorAll('.filt').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.mc').forEach(c=>{
+    if(f==='all'){c.classList.remove('hidden');return;}
+    if(f==='alta'){c.classList.toggle('hidden',c.dataset.d!=='peak'&&c.dataset.d!=='alta');}
+    else{c.classList.toggle('hidden',c.dataset.s!==f);}
   });
 }
 
-function openModal(id) {
-  const m = MONTHS_DATA.find(x => x.id === id);
-  if (!m) return;
-
-  document.getElementById('modalTag').textContent = m.name + ' · ' + m.season;
-  document.getElementById('modalTitle').textContent = m.emoji + ' ' + m.name;
-  document.getElementById('modalSubtitle').textContent = m.subtitle;
-
-  document.getElementById('modalHero').style.background = m.bgColor;
-
-  const body = document.getElementById('modalBody');
-  body.innerHTML = `
-    <div class="modal-section-title">Fechas y Eventos Clave</div>
-    <div class="event-list">
-      ${m.dates.map(d => `
-        <div class="event-item">
-          <div class="event-icon">${d.icon}</div>
-          <div>
-            <div class="event-name">${d.name}</div>
-            <div class="event-date">${d.date}</div>
-          </div>
-          <span class="event-priority ${d.priority}">${d.priority.charAt(0).toUpperCase() + d.priority.slice(1)}</span>
-        </div>
-      `).join('')}
-    </div>
-
-    <div class="modal-section-title">Paquetes Sugeridos</div>
-    <div class="packages-grid">
-      ${m.packages.map(p => `
-        <div class="package-card">
-          <div class="package-icon">${p.icon}</div>
-          <div class="package-name">${p.name}</div>
-          <div class="package-desc">${p.desc}</div>
-          <div class="package-price">${p.price}</div>
-        </div>
-      `).join('')}
-    </div>
-
-    <div class="modal-section-title">Extras y Servicios Vendibles</div>
-    <div class="extras-grid">
-      ${m.extras.map(e => `
-        <div class="extra-item">
-          <div class="ei">${e.i}</div>
-          <div class="en">${e.n}</div>
-          <div class="ep">${e.p}</div>
-        </div>
-      `).join('')}
-    </div>
-
-    <div class="modal-section-title">Consejos de Marketing y Ventas</div>
-    <div class="tips-box">
-      ${m.tips.map(t => `<div class="tip-item"><span class="ti">${t.i}</span><span>${t.t}</span></div>`).join('')}
-    </div>
+function abrirModal(id){
+  const m=MESES.find(x=>x.id===id);if(!m)return;
+  document.getElementById('mTag').textContent=m.name+' · '+m.season;
+  document.getElementById('mTitle').textContent=m.emoji+' '+m.name;
+  document.getElementById('mDesc').textContent=m.desc;
+  document.getElementById('mBody').innerHTML=`
+    <div class="msec">Feriados y fechas oficiales Chile 2026</div>
+    <div class="evs">${m.dates.map(d=>`<div class="ev ${d.p}"><div class="ev-i">${d.i}</div><div><div class="ev-n">${d.n}</div><div class="ev-f">${d.f}</div></div><span class="ev-b ${d.p}">${d.p.charAt(0).toUpperCase()+d.p.slice(1)}</span></div>`).join('')}</div>
+    <div class="msec">Paquetes sugeridos</div>
+    <div class="pkgs">${m.pkgs.map(p=>`<div class="pkg"><div class="pkg-i">${p.i}</div><div class="pkg-n">${p.n}</div><div class="pkg-d">${p.d}</div><div class="pkg-p">${p.pr}</div></div>`).join('')}</div>
+    <div class="msec">Extras y servicios vendibles</div>
+    <div class="exts">${m.extras.map(e=>`<div class="ext"><div class="xi">${e.i}</div><div class="xn">${e.n}</div><div class="xp">${e.p}</div></div>`).join('')}</div>
+    <div class="msec">Marketing y ventas · Consejos específicos</div>
+    <div class="tips">${m.tips.map(t=>`<div class="tip"><span class="tip-i">${t.i}</span><span>${t.t}</span></div>`).join('')}</div>
   `;
-
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
 }
 
-function closeModal(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
+function cerrar(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
+function cerrarOv(e){if(e.target===document.getElementById('overlay'))cerrar();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')cerrar();});
+
+function f(n){return'$'+Math.round(n).toLocaleString('es-CL');}
+function calc(){
+  const p=parseInt(document.getElementById('sP').value);
+  const o=parseInt(document.getElementById('sO').value);
+  const pr=parseInt(document.getElementById('sPr').value);
+  const ex=parseInt(document.getElementById('sE').value);
+  const dr=parseInt(document.getElementById('sD').value);
+  const nights=Math.round(365*o/100);
+  const pNights=Math.round(nights*pr/100);
+  const nNights=nights-pNights;
+  const base=nNights*p+pNights*p;
+  const pBonus=pNights*p*0.6;
+  const tot=base+pBonus;
+  const extA=ex*12;
+  const comm=tot*(dr/100)*0.16;
+  const total=tot+extA+comm;
+  const ticket=nights>0?Math.round(total/nights):0;
+  document.getElementById('vP').textContent=f(p);
+  document.getElementById('vO').textContent=o+'%';
+  document.getElementById('vPr').textContent=pr+'%';
+  document.getElementById('vE').textContent=f(ex);
+  document.getElementById('vD').textContent=dr+'%';
+  document.getElementById('rT').textContent=f(total);
+  document.getElementById('rN').textContent=nights+' noches';
+  document.getElementById('rB').textContent=f(base);
+  document.getElementById('rPr').textContent='+'+f(pBonus);
+  document.getElementById('rEx').textContent=f(extA);
+  document.getElementById('rD').textContent='+'+f(comm);
+  document.getElementById('rTk').textContent=f(ticket);
 }
 
-function closeModalBtn() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function updateEstimate() {
-  const basePrice = parseInt(document.getElementById('basePrice').value);
-  const occupancy = parseInt(document.getElementById('occupancy').value);
-  const premiumPct = parseInt(document.getElementById('premiumDays').value);
-  const extrasMonthly = parseInt(document.getElementById('extras').value);
-
-  const nights = Math.round(365 * (occupancy / 100));
-  const premiumNights = Math.round(nights * (premiumPct / 100));
-  const normalNights = nights - premiumNights;
-  const baseIncome = normalNights * basePrice + premiumNights * (basePrice * 1.5);
-  const extrasAnnual = extrasMonthly * 12;
-  const total = baseIncome + extrasAnnual;
-  const avgTicket = Math.round(total / (nights || 1));
-
-  document.getElementById('basePriceVal').textContent = '$' + basePrice.toLocaleString('es-CL');
-  document.getElementById('occupancyVal').textContent = occupancy + '%';
-  document.getElementById('premiumDaysVal').textContent = premiumPct + '%';
-  document.getElementById('extrasVal').textContent = '$' + extrasMonthly.toLocaleString('es-CL');
-
-  document.getElementById('totalIncome').textContent = '$' + Math.round(total / 1000) * 1000 > 0
-    ? formatCLP(total) : '$0';
-  document.getElementById('nightsOccupied').textContent = nights + ' noches';
-  document.getElementById('baseIncome').textContent = formatCLP(baseIncome);
-  document.getElementById('premiumIncome').textContent = formatCLP(premiumNights * (basePrice * 0.5));
-  document.getElementById('extrasIncome').textContent = formatCLP(extrasAnnual);
-  document.getElementById('avgTicket').textContent = formatCLP(avgTicket);
-
-  // Update slider gradients
-  document.getElementById('basePrice').style.setProperty('--val',
-    ((basePrice - 60000) / (250000 - 60000) * 100) + '%');
-  document.getElementById('occupancy').style.setProperty('--val',
-    ((occupancy - 20) / (95 - 20) * 100) + '%');
-  document.getElementById('premiumDays').style.setProperty('--val',
-    (premiumPct / 40 * 100) + '%');
-  document.getElementById('extras').style.setProperty('--val',
-    (extrasMonthly / 300000 * 100) + '%');
-}
-
-function formatCLP(n) {
-  return '$' + Math.round(n).toLocaleString('es-CL');
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModalBtn();
-});
-
-buildMonthCards();
-buildGrowthCards();
-updateEstimate();
+buildMeses();buildEst();buildAmen();calc();
 </script>
 </body>
 </html>
